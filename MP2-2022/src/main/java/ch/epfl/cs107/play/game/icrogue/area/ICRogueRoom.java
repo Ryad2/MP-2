@@ -29,13 +29,15 @@ public class ICRogueRoom extends Area {
 
     public String getTitle() { return behaviorName; }
 
+
+    // ======   WARNING   ==== end of page 6 has more info. CreateArea() has been commented
     @Override
     public boolean begin(Window window, FileSystem fileSystem) {
         if (super.begin(window, fileSystem)) {
             // Set the behavior map
-            behavior = new ICrogueBehavior(window, getTitle());
+            behavior = new ICRogueBehavior(window, getTitle());
             setBehavior(behavior);
-            createArea();
+            //createArea();
             return true;
         }
         return false;
