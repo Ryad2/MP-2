@@ -5,7 +5,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/AreaGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/AreaGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/ICRogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/ICRogue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/ICRogueRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/ICRogueRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/level0Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/level0Room.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/areagame/AreaGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/areagame/AreaGame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/ICRogue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/ICRogue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/ICRogueRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/ICRogueRoom.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +100,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669986368155</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="02/12/2022 13:39">
+      <created>1669988187590</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1669988187590</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,30 +131,15 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/ICRogue.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/AreaGame.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/AreaGame.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/AreaGame.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="5" />
+          <line>65</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
-        <watch expression="((HashMap)areas).entrySet().toArray()[0]" custom="java.util.HashMap" />
+        <watch expression="a.getTitle()" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

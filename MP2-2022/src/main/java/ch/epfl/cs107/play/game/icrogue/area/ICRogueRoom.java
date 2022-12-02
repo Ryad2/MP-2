@@ -31,7 +31,9 @@ public abstract class ICRogueRoom extends Area {
      */
     protected abstract void createArea();
 
-    public String getTitle() { return behaviorName; }
+    public String getTitle() {              // WHY IS IT OVERWRITTEN !?
+        return behaviorName;
+    }
 
     public abstract DiscreteCoordinates getPlayerSpawnPosition();
 
@@ -39,7 +41,7 @@ public abstract class ICRogueRoom extends Area {
     public boolean begin(Window window, FileSystem fileSystem) {
         if (super.begin(window, fileSystem)) {
             // Set the behavior map
-            behavior = new ICRogueBehavior(window, getTitle());
+            behavior = new ICRogueBehavior(window, behaviorName);
             setBehavior(behavior);
             createArea();
             return true;

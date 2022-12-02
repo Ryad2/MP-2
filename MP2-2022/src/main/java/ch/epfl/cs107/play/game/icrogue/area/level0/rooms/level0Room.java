@@ -12,7 +12,7 @@ public class level0Room extends ICRogueRoom {
     public String getTitle() { return "icrogue/level0" + this.coordinates.x + this.coordinates.y; }
 
     public level0Room (DiscreteCoordinates roomCoordinates){
-        super("icrogue/level0Room", roomCoordinates);
+        super("icrogue/level0Room", roomCoordinates);       // make it the same as the behaviorName + coordinates
     }
 
 

@@ -28,7 +28,7 @@ public class ICRogue extends AreaGame {
     public final static float CAMERA_SCALE_FACTOR = 11.f;
 
     private ICRoguePlayer player;
-    private final String[] areas = {"icrogue/Level0Room"};
+    private final String[] areas = {"icrogue/level000"};
 
     private int areaIndex;
     /**
