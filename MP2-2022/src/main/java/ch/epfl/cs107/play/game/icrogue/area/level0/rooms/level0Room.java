@@ -25,6 +25,6 @@ public class level0Room extends ICRogueRoom {
 
     protected void createArea() {
         registerActor(new Background(this, this.behaviorName));
-        registerActor(new ICRoguePlayer());
+        //registerActor(new ICRoguePlayer());
     }
 }

@@ -5,7 +5,6 @@ import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.game.icrogue.actor.ICRoguePlayer;
 import ch.epfl.cs107.play.game.icrogue.area.ICRogueRoom;
 import ch.epfl.cs107.play.game.icrogue.area.level0.rooms.level0Room;
-import ch.epfl.cs107.play.game.tutosSolution.area.Tuto2Area;
 import ch.epfl.cs107.play.io.FileSystem;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
 import ch.epfl.cs107.play.window.Window;
@@ -36,20 +35,20 @@ public class ICRogue extends AreaGame {
      * Add all the areas
      */
     private void createAreas(){
-
+        addArea(new level0Room(new DiscreteCoordinates(0, 0)));
     }
 
-    /*@Override
+    @Override
     public boolean begin(Window window, FileSystem fileSystem) {
 
         if (super.begin(window, fileSystem)) {
             createAreas();
             areaIndex = 0;
-            initArea(areas[areaIndex]);
+            initLevel(areas[areaIndex]);
             return true;
         }
         return false;
-    }*/
+    }
 
     /*private void initArea(String areaKey) {
 
