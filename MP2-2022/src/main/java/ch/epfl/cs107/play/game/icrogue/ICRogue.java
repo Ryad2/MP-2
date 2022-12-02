@@ -1,12 +1,14 @@
 package ch.epfl.cs107.play.game.icrogue;
 
 import ch.epfl.cs107.play.game.areagame.AreaGame;
+import ch.epfl.cs107.play.game.areagame.actor.MovableAreaEntity;
 import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.game.icrogue.actor.ICRoguePlayer;
 import ch.epfl.cs107.play.game.icrogue.area.ICRogueRoom;
 import ch.epfl.cs107.play.game.icrogue.area.level0.rooms.level0Room;
 import ch.epfl.cs107.play.io.FileSystem;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
+import ch.epfl.cs107.play.window.Keyboard;
 import ch.epfl.cs107.play.window.Window;
 
 // copies Tuto2
@@ -18,9 +20,10 @@ public class ICRogue extends AreaGame {
         currentRoom = new level0Room(new DiscreteCoordinates(0, 0));
         addArea(currentRoom);
         setCurrentArea(areaKey, true);
-        //player = new ICRouguePlayer();
+        player = new ICRoguePlayer(currentRoom, Orientation.UP, new DiscreteCoordinates(2,2));
         //player.enterArea(area, coords);
     }
+
 
 
 
@@ -61,6 +64,11 @@ public class ICRogue extends AreaGame {
     }*/
     @Override
     public void update(float deltaTime) {
+        if(currentRoom.getKeyboard().get(Keyboard.R).isDown()){
+            begin(getWindow(), getFileSystem());
+        }//BIG SHITTTTT TO CORRECT
+
+
         super.update(deltaTime);
     }
 
