@@ -28,14 +28,14 @@ public class ICRogue extends AreaGame {
     public final static float CAMERA_SCALE_FACTOR = 11.f;
 
     private ICRoguePlayer player;
-    private final String[] areas = {};
+    private final String[] areas = {"icrogue/Level0Room"};
 
     private int areaIndex;
     /**
      * Add all the areas
      */
-    private void createAreas(){
-        addArea(new level0Room(new DiscreteCoordinates(0, 0)));
+    public void createAreas(){
+        //addArea(new level0Room(new DiscreteCoordinates(0, 0)));
     }
 
     @Override

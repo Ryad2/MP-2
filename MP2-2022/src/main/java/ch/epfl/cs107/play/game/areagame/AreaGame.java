@@ -31,7 +31,8 @@ abstract public class AreaGame implements Game, PauseMenu.Pausable {
      * @param a (Area): The area to add, not null
      */
     public final void addArea(Area a){
-        areas.put(a.getTitle(), a);
+        //areas.put(a.getTitle(), a);
+        areas.put("icrogue/Level0Room", a);
     }
 
     /**
