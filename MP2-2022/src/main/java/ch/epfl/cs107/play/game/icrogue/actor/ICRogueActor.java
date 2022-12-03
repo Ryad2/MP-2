@@ -23,7 +23,7 @@ public class ICRogueActor extends MovableAreaEntity {
     }
 
 
-    private Sprite sprite;
+    protected Sprite sprite;
     /// Animation duration in frame number
 
     protected final static int MOVE_DURATION = 8;
@@ -54,7 +54,7 @@ public class ICRogueActor extends MovableAreaEntity {
      */
     public void enterArea(Area area, DiscreteCoordinates position){
         area.registerActor(this);
-        area.setViewCandidate(this);
+        //area.setViewCandidate(this);
         setOwnerArea(area);
         setCurrentPosition(position.toVector());
         resetMotion();
@@ -63,7 +63,6 @@ public class ICRogueActor extends MovableAreaEntity {
     @Override
     public void draw(Canvas canvas) {
         sprite.draw(canvas);
-
     }
 
 

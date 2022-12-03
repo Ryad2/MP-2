@@ -1,7 +1,6 @@
 package ch.epfl.cs107.play.game.icrogue;
 
 import ch.epfl.cs107.play.game.areagame.AreaGame;
-import ch.epfl.cs107.play.game.areagame.actor.MovableAreaEntity;
 import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.game.icrogue.actor.ICRoguePlayer;
 import ch.epfl.cs107.play.game.icrogue.area.ICRogueRoom;
@@ -21,7 +20,7 @@ public class ICRogue extends AreaGame {
         addArea(currentRoom);
         setCurrentArea(areaKey, true);
         player = new ICRoguePlayer(currentRoom, Orientation.UP, new DiscreteCoordinates(2,2));
-        //player.enterArea(area, coords);
+        player.enterArea(currentRoom, new DiscreteCoordinates(2, 2));
     }
 
 
@@ -65,11 +64,19 @@ public class ICRogue extends AreaGame {
     @Override
     public void update(float deltaTime) {
         if(currentRoom.getKeyboard().get(Keyboard.R).isDown()){
-            begin(getWindow(), getFileSystem());
+            restartArea();
         }//BIG SHITTTTT TO CORRECT
 
 
         super.update(deltaTime);
+    }
+
+    private void restartArea(){
+
+        setCurrentArea(areas[areaIndex], true);
+        player.enterArea(currentRoom, new DiscreteCoordinates(2, 2));
+
+        System.out.println("restart");
     }
 
     @Override

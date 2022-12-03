@@ -12,35 +12,26 @@ import ch.epfl.cs107.play.window.Keyboard;
 
 
 public class ICRoguePlayer extends ICRogueActor {
-
-
     private static final int MOVE_DURATION = 8;
 
     public ICRoguePlayer(Area owner, Orientation orientation, DiscreteCoordinates coordinates) {
         super(owner, orientation, coordinates);
+
+        sprite = bottom;
     }
 
 
+    Sprite bottom = new Sprite("zelda/player",.75f,1.5f,this,
+            new RegionOfInterest(0, 0,16,32), new Vector(.15f,-.15f));
 
-    //bas
-    Sprite bottom = new Sprite("zelda/player",.75f,1.5f,this, new RegionOfInterest(0, 0,16,32), new Vector(.15f,-.15f));
+    Sprite right = new Sprite("zelda/player",.75f,1.5f,this,
+            new RegionOfInterest(0, 32,16,32), new Vector(.15f, -.15f));
 
-    // droite
-   Sprite right = new Sprite("zelda/player",.75f,1.5f,this, new RegionOfInterest(0, 32,16,32), new Vector(.15f, -.15f));
+    Sprite top = new Sprite("zelda/player",.75f,1.5f,this,
+            new RegionOfInterest(0, 64,16,32), new Vector(.15f, -.15f));
 
-   // haut
-Sprite top = new Sprite("zelda/player",.75f,1.5f,this, new RegionOfInterest(0, 64,16,32), new Vector(.15f, -.15f));
-
-   // gauche
-Sprite left =  new Sprite("zelda/player",.75f,1.5f,this, new RegionOfInterest(0, 96,16,32), new Vector(.15f,-.15f));
-
-
-
-
-
-
-
-
+    Sprite left =  new Sprite("zelda/player",.75f,1.5f,this,
+            new RegionOfInterest(0, 96,16,32), new Vector(.15f,-.15f));
 
     public void update(float deltaTime) {
 
@@ -54,12 +45,6 @@ Sprite left =  new Sprite("zelda/player",.75f,1.5f,this, new RegionOfInterest(0,
         super.update(deltaTime);
 
     }
-
-
-
-
-
-
     private void moveIfPressed(Orientation orientation, Button b){
         if(b.isDown()) {
             if (!isDisplacementOccurs()) {
@@ -70,10 +55,9 @@ Sprite left =  new Sprite("zelda/player",.75f,1.5f,this, new RegionOfInterest(0,
 
     }
 
-
     private void launchFireBall(){
         ICRogueActor fireBall= new ICRogueActor(getOwnerArea(), getOrientation(),getCurrentMainCellCoordinates());
-    }//create fire ball when press X; maybe create a class PROJECTILLE
+    }//create fireball when press X; maybe create a class PROJECTILLE
 
 
 }

@@ -73,8 +73,8 @@ public class ICRogueBehavior extends AreaBehavior{
 
         @Override
         protected boolean canEnter(Interactable entity) {
-            return type.isWalkable && takeCellSpace();      // not sure if takeCellSpace actually works.
-        }
+            return type.isWalkable && !takeCellSpace();      // not sure if takeCellSpace actually works.
+        }                                                   // this shit is a pigeon. FIX!
 
 
         @Override
