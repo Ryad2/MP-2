@@ -1,6 +1,5 @@
 package ch.epfl.cs107.play.game.icrogue.actor;
 
-
 import ch.epfl.cs107.play.game.areagame.Area;
 import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.game.areagame.actor.Sprite;
@@ -9,6 +8,9 @@ import ch.epfl.cs107.play.math.RegionOfInterest;
 import ch.epfl.cs107.play.math.Vector;
 import ch.epfl.cs107.play.window.Button;
 import ch.epfl.cs107.play.window.Keyboard;
+import java.util.HashMap;
+import java.util.Map;
+
 
 
 public class ICRoguePlayer extends ICRogueActor {
@@ -16,22 +18,35 @@ public class ICRoguePlayer extends ICRogueActor {
 
     public ICRoguePlayer(Area owner, Orientation orientation, DiscreteCoordinates coordinates) {
         super(owner, orientation, coordinates);
-
-        sprite = bottom;
+        createSpriteMAP();
     }
 
 
-    Sprite bottom = new Sprite("zelda/player",.75f,1.5f,this,
-            new RegionOfInterest(0, 0,16,32), new Vector(.15f,-.15f));
+    Map<Orientation, Sprite> sprites = new HashMap<>();
+public void createSpriteMAP() {
 
-    Sprite right = new Sprite("zelda/player",.75f,1.5f,this,
-            new RegionOfInterest(0, 32,16,32), new Vector(.15f, -.15f));
 
-    Sprite top = new Sprite("zelda/player",.75f,1.5f,this,
-            new RegionOfInterest(0, 64,16,32), new Vector(.15f, -.15f));
+    Sprite down = new Sprite("zelda/player", .75f, 1.5f, this,
+            new RegionOfInterest(0, 0, 16, 32), new Vector(.15f, -.15f));
+    Sprite right = new Sprite("zelda/player", .75f, 1.5f, this,
+            new RegionOfInterest(0, 32, 16, 32), new Vector(.15f, -.15f));
+    Sprite top = new Sprite("zelda/player", .75f, 1.5f, this,
+            new RegionOfInterest(0, 64, 16, 32), new Vector(.15f, -.15f));
+    Sprite left = new Sprite("zelda/player", .75f, 1.5f, this,
+            new RegionOfInterest(0, 96, 16, 32), new Vector(.15f, -.15f));
 
-    Sprite left =  new Sprite("zelda/player",.75f,1.5f,this,
-            new RegionOfInterest(0, 96,16,32), new Vector(.15f,-.15f));
+
+    sprites.put(Orientation.UP, top);
+    sprites.put(Orientation.DOWN, down);
+    sprites.put(Orientation.RIGHT, right);
+    sprites.put(Orientation.LEFT, left);
+
+}
+
+    public Sprite getSprites(Orientation orientation){
+        return sprites.get(orientation);
+    }
+
 
     public void update(float deltaTime) {
 
@@ -43,8 +58,9 @@ public class ICRoguePlayer extends ICRogueActor {
         moveIfPressed(Orientation.DOWN, keyboard.get(Keyboard.DOWN));
 
         super.update(deltaTime);
-
+        sprite = getSprites(getOrientation());
     }
+
     private void moveIfPressed(Orientation orientation, Button b){
         if(b.isDown()) {
             if (!isDisplacementOccurs()) {
@@ -53,6 +69,11 @@ public class ICRoguePlayer extends ICRogueActor {
             }
         }
 
+    }
+
+
+    public boolean takeCellSpace(){
+        return true;
     }
 
     private void launchFireBall(){
