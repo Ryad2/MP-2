@@ -77,6 +77,7 @@ public class ICRogue extends AreaGame {
         setCurrentArea(areas[areaIndex], true);
         player.enterArea(currentRoom, new DiscreteCoordinates(2, 2));
 
+        player.resetPlayer();
     }
 
     @Override

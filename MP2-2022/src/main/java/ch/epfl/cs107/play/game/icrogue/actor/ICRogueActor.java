@@ -28,6 +28,8 @@ public class ICRogueActor extends MovableAreaEntity {
 
     protected final static int MOVE_DURATION = 8;
 
+    protected String name;
+
 
 
 
