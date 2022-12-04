@@ -90,6 +90,9 @@ public class ICRogueActor extends MovableAreaEntity {
     @Override
     public void acceptInteraction(AreaInteractionVisitor v, boolean isCellInteraction) {
     }
+
+
+
 }
 
 

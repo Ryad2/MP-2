@@ -50,6 +50,7 @@ public class ICRogue extends AreaGame {
             return true;
         }
         return false;
+
     }
 
     /*private void initArea(String areaKey) {
@@ -68,7 +69,7 @@ public class ICRogue extends AreaGame {
         }//BIG SHITTTTT TO CORRECT
 
 
-        super.update(deltaTime);
+         super.update(deltaTime);
     }
 
     private void restartArea(){
@@ -76,7 +77,6 @@ public class ICRogue extends AreaGame {
         setCurrentArea(areas[areaIndex], true);
         player.enterArea(currentRoom, new DiscreteCoordinates(2, 2));
 
-        System.out.println("restart");
     }
 
     @Override

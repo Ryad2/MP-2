@@ -3,6 +3,8 @@ package ch.epfl.cs107.play.game.icrogue;
 import ch.epfl.cs107.play.game.areagame.AreaBehavior;
 import ch.epfl.cs107.play.game.areagame.actor.Interactable;
 import ch.epfl.cs107.play.game.areagame.handler.AreaInteractionVisitor;
+import ch.epfl.cs107.play.game.icrogue.actor.ICRogueActor;
+import ch.epfl.cs107.play.game.icrogue.actor.ICRoguePlayer;
 import ch.epfl.cs107.play.window.Window;
 
 public class ICRogueBehavior extends AreaBehavior{
@@ -73,7 +75,7 @@ public class ICRogueBehavior extends AreaBehavior{
 
         @Override
         protected boolean canEnter(Interactable entity) {
-            return type.isWalkable && !takeCellSpace();      // not sure if takeCellSpace actually works.
+            return type.isWalkable && !takeCellSpace();      // not sure if actually works.
         }                                                   // this shit is a pigeon. FIX!
 
 
