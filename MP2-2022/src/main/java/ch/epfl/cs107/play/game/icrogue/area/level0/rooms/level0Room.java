@@ -1,7 +1,10 @@
 package ch.epfl.cs107.play.game.icrogue.area.level0.rooms;
 
 import ch.epfl.cs107.play.game.areagame.actor.Background;
+import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.game.icrogue.actor.ICRoguePlayer;
+import ch.epfl.cs107.play.game.icrogue.actor.items.Cherry;
+import ch.epfl.cs107.play.game.icrogue.actor.items.Staff;
 import ch.epfl.cs107.play.game.icrogue.area.ICRogueRoom;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
 
@@ -25,6 +28,8 @@ public class level0Room extends ICRogueRoom {
 
     protected void createArea() {
         registerActor(new Background(this, this.behaviorName));
-        //registerActor(new ICRoguePlayer());
+        registerActor(new Cherry(this, Orientation.DOWN, new DiscreteCoordinates(6,3) ));
+        registerActor(new Staff(this, Orientation.DOWN, new DiscreteCoordinates(4,3) ));
+
     }
 }
