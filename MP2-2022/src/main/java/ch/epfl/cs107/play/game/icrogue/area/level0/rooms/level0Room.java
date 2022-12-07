@@ -31,10 +31,5 @@ public class level0Room extends ICRogueRoom {
         registerActor(new Cherry(this, Orientation.DOWN, new DiscreteCoordinates(6,3) ));
         registerActor(new Staff(this, Orientation.DOWN, new DiscreteCoordinates(4,3) ));
 
-    }//HELLO FROM THE OTHER WORLD
-
+    }
 }
-
-
-
-// test to do simultanious coding
