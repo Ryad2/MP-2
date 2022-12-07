@@ -80,5 +80,4 @@ public class Play {
 			window.dispose();
 		}
 	}
-
-}/
+}

@@ -16,7 +16,7 @@ import java.util.Collections;
 import java.util.List;
 
 
-public class ICRogueActor extends MovableAreaEntity {
+public class ICRogueActor extends MovableAreaEntity{
 
     public ICRogueActor(Area owner, Orientation orientation, DiscreteCoordinates coordinates ){
         super(owner, orientation, coordinates);
@@ -27,8 +27,6 @@ public class ICRogueActor extends MovableAreaEntity {
     /// Animation duration in frame number
 
     protected final static int MOVE_DURATION = 8;
-
-    protected String name;
 
 
 
