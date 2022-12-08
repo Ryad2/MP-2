@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dd16bcf7-c88b-4c3e-bc22-98209ce54ebf" name="Changes" comment="test">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/Play.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/Play.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/ICRogueBehavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/ICRogueBehavior.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/ICRogueActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/ICRogueActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/items/Cherry.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/items/Cherry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/items/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/items/Staff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/projectiles/FireBall.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/projectiles/FireBall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/projectiles/Projectiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/projectiles/Projectiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/handler/ICRogueInteractionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/handler/ICRogueInteractionHandler.java" afterDir="false" />
-    </list>
+    <list default="true" id="dd16bcf7-c88b-4c3e-bc22-98209ce54ebf" name="Changes" comment="07/12/2022 20:58 step 1 is DONE. unless we gave a toInt();" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -115,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670429373250</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="07/12/2022 20:58 step 1 is DONE. unless we gave a toInt();">
+      <created>1670443152144</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1670443152144</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -135,7 +131,8 @@
     <MESSAGE value="02/12/2022 13:39" />
     <MESSAGE value="06/12/2022 12:59" />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="07/12/2022 20:58 step 1 is DONE. unless we gave a toInt();" />
+    <option name="LAST_COMMIT_MESSAGE" value="07/12/2022 20:58 step 1 is DONE. unless we gave a toInt();" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
