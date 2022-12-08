@@ -62,6 +62,9 @@ public class ICRogueActor extends MovableAreaEntity{
 
     @Override
     public void draw(Canvas canvas) {
+        if (sprite == null){
+            System.out.println("sprite is null");
+        }
         sprite.draw(canvas);
     }
 

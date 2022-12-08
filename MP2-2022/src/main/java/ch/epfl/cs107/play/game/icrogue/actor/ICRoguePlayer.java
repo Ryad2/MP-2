@@ -38,9 +38,14 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
         this.handler = new ICRoguePlayerInteractionHandler();
 
         collectedStaff = false;
+        launchFireBall = false;
+        fireBallCooldownValue = 0;
     }
 
     private boolean collectedStaff;
+    private boolean launchFireBall;
+    private int fireBallCooldownValue;
+    private final int fireBallCooldown = 10;     // 5 is a placeholder value. It needs to be changed later
 
 
     Map<Orientation, Sprite> sprites = new HashMap<>();
@@ -86,7 +91,22 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
         sprite = getSprites(getOrientation());
 
         super.update(deltaTime);
+
+
+        // player specific actions
+
+        if (fireBallCooldownValue != 0){
+            fireBallCooldownValue--;
+        }
+
+        if (launchFireBall){
+            launchFireBall();
+            launchFireBall = false;
+            fireBallCooldownValue = fireBallCooldown;
+        }
     }
+
+    // Keyboard interactions
 
     private void moveIfPressed(Orientation orientation, Button b){
         if(b.isDown()) {
@@ -95,29 +115,30 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
                 move(MOVE_DURATION);
             }
         }
-
     }
     private void launchFireBallIfPressed(Button button){
-        if (button.isDown()){
-            launchFireBall();
+        if (button.isDown() && collectedStaff && fireBallCooldownValue == 0){
+            launchFireBall = true;
         }
     }
 
+    // player actions
 
     private void launchFireBall(){
-        if (collectedStaff){
-            ICRogueActor fireBall = new FireBall(getOwnerArea(), getOrientation(), getCurrentMainCellCoordinates());
-        }
-        else{
-            System.out.println("you need the staff");
-        }
+        new FireBall(getOwnerArea(), getOrientation(), getCurrentMainCellCoordinates());
     }
+
+    public void takeDamage(){
+        System.out.println("ouch");
+    }
+
+    // =====              =====
+    // =====  Interactor  =====
+    // =====              =====
 
     public boolean takeCellSpace(){
         return true;
     }
-
-
     @Override
     public List<DiscreteCoordinates> getCurrentCells() {
         return super.getCurrentCells();
@@ -161,8 +182,8 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
         @Override
         public void interactWith(Item item, boolean isCellInteraction){
 
-            if (isCellInteraction && wantsCellInteraction() && item.isCellInteractable()){
-                item.collect();
+            if (isCellInteraction && wantsCellInteraction() && item.isCellInteractable()){      // check if WantsCellInteraction
+                item.collect();                                                                 // is necessary
             }
             else if (wantsViewInteraction() && item.isViewInteractable()){
                 item.collect();

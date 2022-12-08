@@ -43,6 +43,7 @@ public class FireBall extends Projectiles implements Interactor {
         if (isConsumed()) leaveArea();
     }
 
+    // Interactor
 
     @Override
     public List<DiscreteCoordinates> getFieldOfViewCells() {
