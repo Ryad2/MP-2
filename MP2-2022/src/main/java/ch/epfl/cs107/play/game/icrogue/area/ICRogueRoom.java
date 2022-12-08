@@ -9,7 +9,7 @@ import ch.epfl.cs107.play.window.Window;
 
 public abstract class ICRogueRoom extends Area {
 
-    public DiscreteCoordinates coordinates;
+    public DiscreteCoordinates coordinates;// WHY THIS SHIT IS PUBLIC I LL USE IT AS PUBLIC IN CONNECTOR BUT SHOULD CHANGE IT
     private ICRogueBehavior behavior;
     public final String behaviorName;
 
@@ -34,6 +34,9 @@ public abstract class ICRogueRoom extends Area {
     public String getTitle() {              // WHY IS IT OVERWRITTEN !?
         return behaviorName;
     }
+
+    //CREATED FOR CONNECTOR
+    public String getTitle(String behaviorName, DiscreteCoordinates coordinates) { return behaviorName + coordinates.x + coordinates.y; }
 
     public abstract DiscreteCoordinates getPlayerSpawnPosition();
 
