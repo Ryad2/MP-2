@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dd16bcf7-c88b-4c3e-bc22-98209ce54ebf" name="Changes" comment="15:59">
+    <list default="true" id="dd16bcf7-c88b-4c3e-bc22-98209ce54ebf" name="Changes" comment="testing this fucking git2.0">
       <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/level0Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/level0Room.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,7 +130,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670598047004</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="testing this fucking git">
+      <created>1670598266842</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1670598266842</updated>
+    </task>
+    <task id="LOCAL-00013" summary="testing this fucking git2.0">
+      <created>1670598405116</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1670598405116</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,7 +166,9 @@
     <MESSAGE value="test" />
     <MESSAGE value="08/12/22 05:33" />
     <MESSAGE value="15:59" />
-    <option name="LAST_COMMIT_MESSAGE" value="15:59" />
+    <MESSAGE value="testing this fucking git" />
+    <MESSAGE value="testing this fucking git2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing this fucking git2.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
