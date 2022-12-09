@@ -84,7 +84,7 @@ public class level0Room extends ICRogueRoom {
 
 //hope it gonna work WHYYYY
 
-
+// test 4 Fedor
 
 
 
