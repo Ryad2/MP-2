@@ -54,7 +54,8 @@ public class level0Room extends ICRogueRoom {
     }
 
 
-    public enum Level0Connectors implements ConnectorInRoom {
+    // Fedor test 2
+    public enum Level0Connectors implements ConnectorInRoom {                      // Fedor test 3
         // ordre des attributs: position , destination , orientation
         W(new DiscreteCoordinates(0, 4), new DiscreteCoordinates(8, 5), Orientation.LEFT),
         S(new DiscreteCoordinates(4, 0), new DiscreteCoordinates(5, 8), Orientation.DOWN),
@@ -66,11 +67,7 @@ public class level0Room extends ICRogueRoom {
           
 
         }
-    }//i'm here
-
-
-
-    // Me too
+    }
 
  int getIndex(){
         int x=0;
@@ -80,7 +77,7 @@ public class level0Room extends ICRogueRoom {
 
 
 
-
+    // Fedor test 1 same line
 
 
 
