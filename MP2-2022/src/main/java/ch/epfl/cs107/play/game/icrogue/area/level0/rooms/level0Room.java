@@ -72,7 +72,7 @@ public class level0Room extends ICRogueRoom {
 
     // Me too
 
- int getIndex(){        // I am in get index
+ int getIndex(){
         int x=0;
        return x;
  }

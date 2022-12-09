@@ -1,27 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dafe1da8-426f-4596-827f-0a61a2af1eb3" name="Changes" comment="08/12/22 05:33">
+    <list default="true" id="dd16bcf7-c88b-4c3e-bc22-98209ce54ebf" name="Changes" comment="now">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/ICRogueActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/ICRogueActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/enemies/Turret.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/enemies/Turret.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/projectiles/Arrow.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/projectiles/Arrow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/projectiles/FireBall.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/projectiles/FireBall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/projectiles/Projectiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/projectiles/Projectiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/Connector.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/Connector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/level0Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/level0Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/handler/ICRogueInteractionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/handler/ICRogueInteractionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/ICRogueActor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/ICRogueActor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer$ICRoguePlayerInteractionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer$ICRoguePlayerInteractionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/enemies/Turret.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/enemies/Turret.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/projectiles/Arrow$ArrowInteractionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/projectiles/Arrow$ArrowInteractionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/projectiles/Arrow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/projectiles/Arrow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/projectiles/FireBall$FireBallInteractionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/projectiles/FireBall$FireBallInteractionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/projectiles/FireBall.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/projectiles/FireBall.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/projectiles/Projectiles.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/projectiles/Projectiles.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/level0Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/level0Room.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/handler/ICRogueInteractionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/handler/ICRogueInteractionHandler.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,17 +32,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/fkata/Documents/GitHub/MP-1",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/IdeaProjects/MP-2&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration>C:\Users\User\AppData\Roaming\Subversion</configuration>
@@ -135,14 +118,7 @@
       <option name="project" value="LOCAL" />
       <updated>1670473992970</updated>
     </task>
-    <task id="LOCAL-00010" summary="08/12/22 05:33">
-      <created>1670590554437</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1670590554437</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -173,6 +149,11 @@
           <line>15</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/ICRogueActor.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -183,10 +164,5 @@
         <watch expression="entity.takeCellSpace()" language="JAVA" />
       </configuration>
     </watches-manager>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/EPFL_MP_2$Play.ic" NAME="Play Coverage Results" MODIFIED="1670593321474" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>ch.epfl.cs107.play.*</FILTER>
-    </SUITE>
   </component>
 </project>
