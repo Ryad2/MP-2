@@ -63,7 +63,8 @@ public class level0Room extends ICRogueRoom {
         private DiscreteCoordinates destination;
         private Orientation orientation;
 
-
+//if it work life is nice
+        //even here
         Level0Connectors(DiscreteCoordinates position , DiscreteCoordinates destination, Orientation orientation) {
             this.position =position;
             this.destination=destination;
