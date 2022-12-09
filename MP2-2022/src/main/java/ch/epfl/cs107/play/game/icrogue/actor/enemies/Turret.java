@@ -30,9 +30,8 @@ public class Turret extends ICRogueActor {
         super(owner, orientation, coordinates);
         this.targetOrientations = targetOrientations.clone();
 
-        Sprite sprite = new Sprite("icrogue/static_npc", 1f, 1f, this,
-                new RegionOfInterest(32* orientation.ordinal() , 0, 32, 32) , new Vector(0, 0));
-        this.sprite = sprite;
+        sprite = new Sprite("icrogue/static_npc", 1f, 1.5f, this,
+                new RegionOfInterest(0, 0, 16, 32), new Vector(.15f, -.15f));
     }
 
     @Override
@@ -52,10 +51,12 @@ public class Turret extends ICRogueActor {
 
         for (Orientation orientation : targetOrientations){
 
+            System.out.println("launch");
+
             Sprite sprite = new Sprite("zelda/arrow", 1f, 1f, this,
                     new RegionOfInterest(32* orientation.ordinal() , 0, 32, 32) , new Vector(0, 0));
 
-            new Arrow(getOwnerArea(), getOrientation(), getCurrentMainCellCoordinates(), sprite);
+            Arrow.createArrow(getOwnerArea(), getOrientation(), getCurrentMainCellCoordinates(), sprite);
         }
     }
 }

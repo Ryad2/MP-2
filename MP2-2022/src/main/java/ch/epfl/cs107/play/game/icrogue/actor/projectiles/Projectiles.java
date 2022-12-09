@@ -18,12 +18,12 @@ public class Projectiles extends ICRogueActor implements Consumable {
 
     //protected Sprite sprite;
 
-    protected int moveDuration;
-    protected int damage;
-    protected boolean isConsumed;
+    private int moveDuration;
+    private int damage;
+    private boolean isConsumed;
 
-    protected static final int DEFAULT_DAMAGE = 1;
-    protected static final int DEFAULT_MOVE_DURATION = 8;
+    private static final int DEFAULT_DAMAGE = 1;
+    private static final int DEFAULT_MOVE_DURATION = 8;
 
 
     public Projectiles(Area owner, Orientation orientation, DiscreteCoordinates coordinates, int damage, int moveDuration){

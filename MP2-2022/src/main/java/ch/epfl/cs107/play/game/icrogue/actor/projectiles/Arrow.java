@@ -15,12 +15,18 @@ import java.util.List;
 
 public class Arrow extends Projectiles implements Interactor {
 
-    private ArrowInteractionHandler handler;
+    private final ArrowInteractionHandler handler;
 
-    public Arrow(Area owner, Orientation orientation, DiscreteCoordinates coordinates, Sprite sprite) {
+    public Arrow(Area owner, Orientation orientation, DiscreteCoordinates coordinates) {
         super(owner, orientation, coordinates);
 
-        setSprite(sprite);
+        handler = new ArrowInteractionHandler();
+    }
+
+    public static void createArrow(Area owner, Orientation orientation, DiscreteCoordinates coordinates, Sprite sprite){
+        Arrow arrow = new Arrow(owner, orientation, coordinates);
+        arrow.setSprite(sprite);
+        arrow.enterArea(owner, coordinates);
     }
 
     // Interactor
