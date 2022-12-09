@@ -5,6 +5,8 @@ import ch.epfl.cs107.play.game.areagame.actor.Interactable;
 import ch.epfl.cs107.play.game.areagame.actor.Interactor;
 import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.game.areagame.actor.Sprite;
+import ch.epfl.cs107.play.game.areagame.handler.AreaInteractionVisitor;
+import ch.epfl.cs107.play.game.icrogue.actor.enemies.Turret;
 import ch.epfl.cs107.play.game.icrogue.actor.items.Cherry;
 import ch.epfl.cs107.play.game.icrogue.actor.items.Item;
 import ch.epfl.cs107.play.game.icrogue.actor.items.Staff;
@@ -198,6 +200,20 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
                 collectedStaff = true;
             }
         }
+
+        @Override public void interactWith(Turret turret, boolean isCellInteraction){
+            if (isCellInteraction && wantsCellInteraction() && turret.isCellInteractable()){
+                turret.die();
+            }
+        }
+    }
+
+
+
+
+    @Override
+    public void acceptInteraction(AreaInteractionVisitor v, boolean isCellInteraction) {
+        ((ICRogueInteractionHandler) v).interactWith(this , isCellInteraction);
     }
 
 }

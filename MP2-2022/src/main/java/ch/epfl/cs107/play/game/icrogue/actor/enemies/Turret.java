@@ -3,8 +3,10 @@ package ch.epfl.cs107.play.game.icrogue.actor.enemies;
 import ch.epfl.cs107.play.game.areagame.Area;
 import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.game.areagame.actor.Sprite;
+import ch.epfl.cs107.play.game.areagame.handler.AreaInteractionVisitor;
 import ch.epfl.cs107.play.game.icrogue.actor.ICRogueActor;
 import ch.epfl.cs107.play.game.icrogue.actor.projectiles.Arrow;
+import ch.epfl.cs107.play.game.icrogue.handler.ICRogueInteractionHandler;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
 import ch.epfl.cs107.play.math.RegionOfInterest;
 import ch.epfl.cs107.play.math.Vector;
@@ -14,7 +16,7 @@ public class Turret extends ICRogueActor {
     private boolean isDead;
     private final Orientation[] targetOrientations;       // might want to change the type later
 
-    private final float COOLDOWN = 2.f;
+    private final float COOLDOWN = 1.f;
     private float cooldown = 0;
 
     public boolean getLivingStatus(){       // change the getter name
@@ -22,8 +24,10 @@ public class Turret extends ICRogueActor {
     }
 
     public void die(){
-        isDead = true;
-        leaveArea();
+        if (!isDead){
+            isDead = true;
+            leaveArea();
+        }
     }
 
     public Turret(Area owner, Orientation orientation, DiscreteCoordinates coordinates, Orientation[] targetOrientations){
@@ -51,12 +55,16 @@ public class Turret extends ICRogueActor {
 
         for (Orientation orientation : targetOrientations){
 
-            System.out.println("launch");
-
-            Sprite sprite = new Sprite("zelda/arrow", 1f, 1f, this,
-                    new RegionOfInterest(32* orientation.ordinal() , 0, 32, 32) , new Vector(0, 0));
-
-            Arrow.createArrow(getOwnerArea(), getOrientation(), getCurrentMainCellCoordinates(), sprite);
+            Arrow.createArrow(getOwnerArea(), orientation, getCurrentMainCellCoordinates());
         }
+    }
+
+
+    // Interactable
+
+
+    @Override
+    public void acceptInteraction(AreaInteractionVisitor v, boolean isCellInteraction) {
+        ((ICRogueInteractionHandler) v).interactWith(this , isCellInteraction);
     }
 }
