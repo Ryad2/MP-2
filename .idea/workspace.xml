@@ -2,21 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd16bcf7-c88b-4c3e-bc22-98209ce54ebf" name="Changes" comment="08/12/22 05:33">
-      <change afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/enemies/Turret.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/projectiles/Arrow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/ICRogueActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/ICRogueActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/projectiles/FireBall.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/projectiles/FireBall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/Connector.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/Connector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/level0Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/level0Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/handler/ICRogueInteractionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/handler/ICRogueInteractionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer$ICRoguePlayerInteractionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer$ICRoguePlayerInteractionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/projectiles/FireBall$FireBallInteractionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/projectiles/FireBall$FireBallInteractionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/projectiles/FireBall.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/projectiles/FireBall.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/ICRogueRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/ICRogueRoom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/level0Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/level0Room.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/handler/ICRogueInteractionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/handler/ICRogueInteractionHandler.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,11 +148,6 @@
           <url>file://$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/handler/AreaInteractionVisitor.java</url>
           <line>15</line>
           <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/ICRogueActor.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

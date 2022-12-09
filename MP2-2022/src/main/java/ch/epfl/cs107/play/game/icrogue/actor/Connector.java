@@ -29,10 +29,10 @@ public class Connector extends AreaEntity {
     private Condition condition;
     private String destinationAreaName;
     private DiscreteCoordinates futureCoordinates;
-    private int NO_KEY_ID;
+    private int NO_KEY_ID;// have to make a setter for this attribute
 
     public Connector(ICRogueRoom ownerArea, DiscreteCoordinates currentMainCellCoordinates, Orientation orientation) {
-        super(ownerArea, orientation, currentMainCellCoordinates);
+        super(ownerArea, orientation, currentMainCellCoordinates);//maybe owner Area is just a area and not an ICRogue room
 
         this.condition=Condition.INVISIBLE;//we suppose that the defaulte condition is invisible
 
