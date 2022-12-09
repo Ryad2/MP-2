@@ -71,19 +71,19 @@ public class level0Room extends ICRogueRoom {
         }
 
         @Override
-        public int getIndex() { //have to be hereand should change it
+        public int getIndex() { //have to be here and should change it
             return 0;
         }
 
         @Override
-        public DiscreteCoordinates getDestination() { //have to be hereand should change it
-            return null;
+        public DiscreteCoordinates getDestination() { //have to be here and should change it
+            return null;//i dont know what is gonning on
         }
-    }//
+    }
 
 
+//hope it gonna work
 
-//i'm soo baddd
 
 
 
