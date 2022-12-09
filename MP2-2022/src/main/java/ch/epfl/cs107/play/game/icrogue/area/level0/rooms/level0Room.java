@@ -68,6 +68,10 @@ public class level0Room extends ICRogueRoom {
         }
     }//i'm here
 
+
+
+    // Me too
+
  int getIndex(){
         int x=0;
        return x;
