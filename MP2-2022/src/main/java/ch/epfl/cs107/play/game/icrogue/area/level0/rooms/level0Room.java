@@ -84,7 +84,6 @@ public class level0Room extends ICRogueRoom {
 
 
 //i'm soo baddd
-    //maybe not that bad
 
 
 

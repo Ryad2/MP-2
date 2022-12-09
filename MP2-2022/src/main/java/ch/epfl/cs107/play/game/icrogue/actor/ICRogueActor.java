@@ -6,6 +6,7 @@ import ch.epfl.cs107.play.game.areagame.actor.MovableAreaEntity;
 import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.game.areagame.actor.Sprite;
 import ch.epfl.cs107.play.game.areagame.handler.AreaInteractionVisitor;
+import ch.epfl.cs107.play.game.icrogue.handler.ICRogueInteractionHandler;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
 import ch.epfl.cs107.play.math.Vector;
 import ch.epfl.cs107.play.window.Canvas;
@@ -26,7 +27,7 @@ public class ICRogueActor extends MovableAreaEntity{
     protected Sprite sprite;
     /// Animation duration in frame number
 
-    protected final static int MOVE_DURATION = 8;
+    private final static int MOVE_DURATION = 8;
 
 
 
@@ -62,9 +63,6 @@ public class ICRogueActor extends MovableAreaEntity{
 
     @Override
     public void draw(Canvas canvas) {
-        if (sprite == null){
-            System.out.println("sprite is null");
-        }
         sprite.draw(canvas);
     }
 

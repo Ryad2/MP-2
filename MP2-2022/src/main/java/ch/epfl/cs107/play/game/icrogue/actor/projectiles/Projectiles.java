@@ -39,7 +39,8 @@ public class Projectiles extends ICRogueActor implements Consumable {
 
     @Override
     public void update(float deltaTime) {
-        move(MOVE_DURATION);
+        boolean x = move(moveDuration);
+        //System.out.println(x);
         super.update(deltaTime);
     }
 
@@ -48,7 +49,10 @@ public class Projectiles extends ICRogueActor implements Consumable {
     }
 
     public void consume(){
-        isConsumed = true;
+        if (!isConsumed){
+            isConsumed = true;
+            leaveArea();
+        }
     }
 
     public boolean isConsumed(){
