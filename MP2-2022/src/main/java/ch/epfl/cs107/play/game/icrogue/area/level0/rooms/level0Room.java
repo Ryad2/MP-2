@@ -63,7 +63,7 @@ public class level0Room extends ICRogueRoom {
         private DiscreteCoordinates destination;
         private Orientation orientation;
 
-
+        // Fedor test 6
         Level0Connectors(DiscreteCoordinates position , DiscreteCoordinates destination, Orientation orientation) {
             this.position =position;
             this.destination=destination;
@@ -87,7 +87,7 @@ public class level0Room extends ICRogueRoom {
 // test 4 Fedor
 
 
-
+// line 90 test. Test 5 Fedor
 
 
 }
