@@ -48,6 +48,8 @@ public class Connector extends AreaEntity {
 
     //THIS SHIT CALLCULATE THE COORDINATE OF THE FUTURE ROOM OF IN OUR LEVEL
     //can use methodes Left() Right() and jump .... of DiscreteCoordinates
+
+    //THIS SHIT IS NOT ASKED TO DO
     public DiscreteCoordinates futureRoomCoordinatesFinder(DiscreteCoordinates ownerAreaCoordinates, Orientation orientation){
         return new DiscreteCoordinates((int)(ownerAreaCoordinates.x+orientation.toVector().x), (int)(ownerAreaCoordinates.y+orientation.toVector().y));
     }

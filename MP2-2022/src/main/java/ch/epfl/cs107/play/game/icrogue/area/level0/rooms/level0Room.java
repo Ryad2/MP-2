@@ -55,30 +55,35 @@ public class level0Room extends ICRogueRoom {
 
 
     public enum Level0Connectors implements ConnectorInRoom {
-        // ordre des attributs: position , destination , orientation
-        W(new DiscreteCoordinates(0, 4), new DiscreteCoordinates(8, 5), Orientation.LEFT),
-        S(new DiscreteCoordinates(4, 0), new DiscreteCoordinates(5, 8), Orientation.DOWN),
-        E(new DiscreteCoordinates(9, 4), new DiscreteCoordinates(1, 5), Orientation.RIGHT),
-        N(new DiscreteCoordinates(4, 9), new DiscreteCoordinates(5, 1), Orientation.UP);
+        W(new DiscreteCoordinates(0,4), new DiscreteCoordinates(8, 5), Orientation.LEFT),
+        S( new DiscreteCoordinates(4, 0),new DiscreteCoordinates(5, 8), Orientation.DOWN),
+        E(new DiscreteCoordinates(9, 4),new DiscreteCoordinates(1, 5), Orientation.RIGHT),
+        N( new DiscreteCoordinates(4, 9),new  DiscreteCoordinates(5, 1), Orientation.UP);
+        private DiscreteCoordinates position;
+        private DiscreteCoordinates destination;
+        private Orientation orientation;
 
 
         Level0Connectors(DiscreteCoordinates position , DiscreteCoordinates destination, Orientation orientation) {
-          
-
+            this.position =position;
+            this.destination=destination;
+            this.orientation=orientation;
         }
-    }//i'm here
+
+        @Override
+        public int getIndex() { //have to be hereand should change it
+            return 0;
+        }
+
+        @Override
+        public DiscreteCoordinates getDestination() { //have to be hereand should change it
+            return null;
+        }
+    }//
 
 
 
-    // Me too
-
- int getIndex(){
-        int x=0;
-       return x;
- }
-
-
-
+//i'm soo baddd
 
 
 
