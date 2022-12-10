@@ -14,9 +14,7 @@ import ch.epfl.cs107.play.game.icrogue.area.ICRogueRoom;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class level0Room extends ICRogueRoom {
 
@@ -47,10 +45,10 @@ public class level0Room extends ICRogueRoom {
 
         // what follows is for enemy testing only. Comment when working on step 2
 
-        /*Orientation[] turretOrientations =
+        Orientation[] turretOrientations =
                 new Orientation[] {Orientation.DOWN, Orientation.UP, Orientation.LEFT, Orientation.RIGHT};
 
-        registerActor(new Turret(this, Orientation.DOWN, new DiscreteCoordinates(5, 5), turretOrientations));*/
+        registerActor(new Turret(this, Orientation.DOWN, new DiscreteCoordinates(5, 5), turretOrientations));
     }
 
 
@@ -63,7 +61,7 @@ public class level0Room extends ICRogueRoom {
         private DiscreteCoordinates destination;
         private Orientation orientation;
 
-        // Fedor test 6
+
         Level0Connectors(DiscreteCoordinates position , DiscreteCoordinates destination, Orientation orientation) {
             this.position =position;
             this.destination=destination;
@@ -72,24 +70,32 @@ public class level0Room extends ICRogueRoom {
 
         @Override
         public int getIndex() { //have to be here and should change it
-            return 0;
-        }
+            return orientation.ordinal();
+        } //should give
 
         @Override
         public DiscreteCoordinates getDestination() { //have to be here and should change it
-            return null;//i dont know what is gonning on
+            return this.destination;
         }
     }
 
 
-//hope it gonna work WHYYYY
+    static List <Orientation > getAllConnectorsOrientation(){//I M SURE THAT THERE IS A DIRECT WAY TO PUT ENUM IN A LIST
+        List<Orientation> connectorsOrientations=new ArrayList<>();
+        for (Level0Connectors ori : Level0Connectors.values()) connectorsOrientations.add(ori.orientation);
+        return connectorsOrientations;
+    }//should be sure about the order of the elements
 
-// test 4 Fedor
+
+    static List <DiscreteCoordinates > getAllConnectorsPosition(){//I M SURE THAT THERE IS A DIRECT WAY TO PUT ENUM IN A LIST
+        List<DiscreteCoordinates> connectorsPosition=new ArrayList<>();
+        for (Level0Connectors pos : Level0Connectors.values()) connectorsPosition.add(pos.position);
+        return connectorsPosition;
+    }//should be sure about the order of the elements
 
 
-    //PLEASSSEE WORK
 
-//even here work
+
 
 
 
