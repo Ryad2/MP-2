@@ -97,11 +97,17 @@ return new DiscreteCoordinates((int)(currentMainCellCoordinates.x-orientation.to
     public boolean isCellInteractable() {
         if(condition==Condition.OPEN) return true;
         else return false;
-    }
+    }//NOT WRITTEN IN THE PDF but i think that should be false always
 
     @Override
     public boolean isViewInteractable() {
         return true;
+    }
+
+
+    public boolean takeCellSpace() {
+        if(condition==Condition.OPEN) return true;
+        else return false;
     }
 
     @Override
@@ -118,10 +124,7 @@ return new DiscreteCoordinates((int)(currentMainCellCoordinates.x-orientation.to
 
 
 
-    public boolean takeCellSpace() {
-        if(condition==Condition.OPEN) return true;
-        else return false;
-    }
+
 
 //IDK BUT I THINK THAT I HAVE TO LET IT EMPTY FOR NOW
     public void acceptInteraction(AreaInteractionVisitor v, boolean isCellInteraction) {

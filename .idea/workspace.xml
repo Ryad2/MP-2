@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dd16bcf7-c88b-4c3e-bc22-98209ce54ebf" name="Changes" comment="testing this fucking git2.0">
+    <list default="true" id="dd16bcf7-c88b-4c3e-bc22-98209ce54ebf" name="Changes" comment="testing this fucking git3.0">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/Connector.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/Connector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/level0Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/level0Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/Connector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/Connector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/level0Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/level0Room.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +148,21 @@
       <option name="project" value="LOCAL" />
       <updated>1670598405116</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="testing this fucking git2.0">
+      <created>1670598584202</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1670598584202</updated>
+    </task>
+    <task id="LOCAL-00015" summary="testing this fucking git3.0">
+      <created>1670598819380</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1670598819380</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -168,7 +186,8 @@
     <MESSAGE value="15:59" />
     <MESSAGE value="testing this fucking git" />
     <MESSAGE value="testing this fucking git2.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="testing this fucking git2.0" />
+    <MESSAGE value="testing this fucking git3.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="testing this fucking git3.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
