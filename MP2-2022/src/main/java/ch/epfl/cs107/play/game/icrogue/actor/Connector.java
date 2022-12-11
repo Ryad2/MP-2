@@ -27,20 +27,22 @@ public class Connector extends AreaEntity {
     private String destinationAreaName;
     private Condition condition;
     private DiscreteCoordinates targetCoordinates;
-    private final int NO_KEY_ID = 0;// have to make a setter for this attribute
+
+    // made public on purpose. Maybe should not have
+    public static final int NO_KEY_ID = 0;// have to make a setter for this attribute
+    private int keyID;
 
     Map<Condition, Sprite> sprites = new HashMap<>();
 
-    // fix. ICRogueRoom should be Area
     public Connector(Area ownerArea, DiscreteCoordinates currentMainCellCoordinates, Orientation orientation) {
         super(ownerArea, orientation, currentMainCellCoordinates);//maybe owner Area is just an area and not an ICRogue room
 
-        this.condition=Condition.INVISIBLE;//we suppose that the default condition is invisible
+        this.condition = Condition.INVISIBLE;//we suppose that the default condition is invisible
 
         this.destinationAreaName = ownerArea.getTitle();        // for now using getTitle() of level0Room specifically
                                                                 // need new getTitle for other room types
 
-        this.targetCoordinates = futureCoordinatesFinder(currentMainCellCoordinates, orientation);
+        //this.targetCoordinates = futureCoordinatesFinder(currentMainCellCoordinates, orientation);
 
         createSpriteMAP();
     }
@@ -53,9 +55,41 @@ public class Connector extends AreaEntity {
     }
 
 
+    // ====         ====
+    // ==== helpers ====
+    // ====         ====
+
+
+    public void open(){
+        if (condition != Condition.LOCKED){
+            condition = Condition.OPEN;
+        }
+    }
+    public void lock(int ID){
+        condition = Condition.LOCKED;
+        keyID = ID;
+    }
+    public void switchState(){
+        if (condition != Condition.LOCKED){
+            condition = (condition == Condition.OPEN) ? Condition.CLOSED : Condition.OPEN;
+        }
+    }
+
+
+    // ====         ====
+    // ==== setters ====
+    // ====         ====
+
+    public void setDestinationAreaName(String destinationAreaName) {
+        this.destinationAreaName = destinationAreaName;
+    }
+
+    public void setTargetCoordinates(DiscreteCoordinates targetCoordinates){
+        this.targetCoordinates = targetCoordinates;
+    }
+
     //THIS SHIT CALCULATE THE COORDINATE OF THE FUTURE ROOM OF IN OUR LEVEL
     //can use methods Left() Right() and jump .... of DiscreteCoordinates
-
     //THIS SHIT IS NOT ASKED TO DO
     public DiscreteCoordinates futureRoomCoordinatesFinder(DiscreteCoordinates ownerAreaCoordinates, Orientation orientation){
         return new DiscreteCoordinates((int)(ownerAreaCoordinates.x+orientation.toVector().x), (int)(ownerAreaCoordinates.y+orientation.toVector().y));
@@ -66,7 +100,7 @@ public class Connector extends AreaEntity {
 
     //HAVE TO MAKE IT CLEAN IT IS TOO DISGUSTING
     public DiscreteCoordinates futureCoordinatesFinder(DiscreteCoordinates currentMainCellCoordinates,Orientation orientation){
-    return new DiscreteCoordinates((int)(currentMainCellCoordinates.x-orientation.toVector().x* this.getOwnerArea().getWidth()), (int)(currentMainCellCoordinates.y-orientation.toVector().y* this.getOwnerArea().getHeight()));
+        return new DiscreteCoordinates((int)(currentMainCellCoordinates.x-orientation.toVector().x* this.getOwnerArea().getWidth()), (int)(currentMainCellCoordinates.y-orientation.toVector().y* this.getOwnerArea().getHeight()));
     }
 
 
@@ -82,7 +116,7 @@ public class Connector extends AreaEntity {
 
     public void createSpriteMAP() {
 
-        /*Sprite CLOSED = new Sprite("icrogue/door_" + this.getOrientation().ordinal(),
+        Sprite CLOSED = new Sprite("icrogue/door_" + this.getOrientation().ordinal(),
                 (this.getOrientation().ordinal()+1)%2+1, this.getOrientation().ordinal()%2+1, this);
 
 
@@ -91,21 +125,7 @@ public class Connector extends AreaEntity {
 
 
         Sprite LOCKED = new Sprite("icrogue/lockedDoor_" + this.getOrientation().ordinal(),
-                (this.getOrientation().ordinal()+1)%2+1, this.getOrientation().ordinal()%2+1, this);*/
-
-
-
-
-        Sprite CLOSED = new Sprite("icrogue/door_" + getOrientation().ordinal(),
-                (getOrientation().ordinal()+1)%2+1, getOrientation().ordinal()%2+1, this);
-
-
-        Sprite INVISIBLE = new Sprite("icrogue/invisibleDoor_" + getOrientation().ordinal(),
-                (getOrientation().ordinal()+1)%2+1, getOrientation().ordinal()%2+1, this);
-
-
-        Sprite LOCKED = new Sprite("icrogue/lockedDoor_" + getOrientation().ordinal(),
-                (getOrientation().ordinal()+1)%2+1, getOrientation().ordinal()%2+1, this);
+                (this.getOrientation().ordinal()+1)%2+1, this.getOrientation().ordinal()%2+1, this);
 
         sprites.put(Condition.CLOSED, CLOSED);
         sprites.put(Condition.INVISIBLE, INVISIBLE);

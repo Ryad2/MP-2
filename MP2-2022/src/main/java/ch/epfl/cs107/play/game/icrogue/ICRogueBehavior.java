@@ -56,6 +56,7 @@ public class ICRogueBehavior extends AreaBehavior{
     public class ICRogueCell extends Cell {
         /// Type of the cell following the enum
         private final ICRogueCellType type;
+        private boolean isTaken;
 
         /**
          * Default Tuto2Cell Constructor
@@ -69,14 +70,24 @@ public class ICRogueBehavior extends AreaBehavior{
         }
 
         @Override
-        protected boolean canLeave(Interactable entity) {
+        protected boolean canLeave(Interactable entity) {       // might have a problem if this is not the final check
+            if (entity.takeCellSpace()){
+                isTaken = false;
+            }
             return true;
         }
 
         @Override
-        protected boolean canEnter(Interactable entity) {
-            return type.isWalkable && !takeCellSpace();      // not sure if actually works.
-        }                                                   // this shit is a pigeon. FIX!
+        protected boolean canEnter(Interactable entity) {       // might have a problem if this is not the final check
+            if (type.isWalkable && !entity.takeCellSpace()){
+                return true;
+            }
+            if(type.isWalkable && !isTaken) {
+                isTaken = entity.takeCellSpace();
+                return true;
+            }
+            return false;
+        }                                                 // this shit is a pigeon. FIX!
 
 
         @Override

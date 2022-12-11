@@ -22,13 +22,12 @@ public class level0Room extends ICRogueRoom {
     // =====    WARNING    ==== end of page 6 says something about background in this file
 
     //WE CAN ALSO USE THE getTitle() OF ICROGUE ROOM
-    public String getTitle() { return "icrogue/level0" + this.coordinates.x + this.coordinates.y;}
+    public String getTitle() { return "icrogue/level0" + getCoordinates().x + getCoordinates().y;}
 
-    public level0Room (DiscreteCoordinates roomCoordinates){
-        super("icrogue/level0Room", roomCoordinates);       // make it the same as the behaviorName + coordinates
+    public level0Room(DiscreteCoordinates roomCoordinates){
+        super(Level0Connectors.getAllConnectorsPosition(), Level0Connectors.getAllConnectorsOrientation(),
+                "icrogue/level0Room", roomCoordinates);
     }
-
-
 
 
     @Override
@@ -39,24 +38,20 @@ public class level0Room extends ICRogueRoom {
     protected void
 
     createArea() {
-        registerActor(new Background(this, this.behaviorName));
+
+        super.createArea();
+
+        registerActor(new Background(this, getBehaviorName()));
         registerActor(new Cherry(this, Orientation.DOWN, new DiscreteCoordinates(6,3) ));
         registerActor(new Staff(this, Orientation.DOWN, new DiscreteCoordinates(4,3) ));
         registerActor(new Key(this, Orientation.DOWN, new DiscreteCoordinates(5, 4), 0));
 
 
-        /*for (int i = 0; i < Level0Connectors.getAllConnectorsOrientation().size(); i++){
-            registerActor(new Connector(this, Level0Connectors.getAllConnectorsPosition().get(i),
-                    Level0Connectors.getAllConnectorsOrientation().get(i)));
-        }*/
 
-        for (var x : Level0Connectors.values()){
+        /*for (var x : Level0Connectors.values()){
             registerActor(new Connector(this, Level0Connectors.getAllConnectorsPosition().get(x.getIndex()),
-                    Level0Connectors.getAllConnectorsOrientation().get(x.getIndex())));
-        }
-
-        /*registerActor(new Connector(this, Level0Connectors.getAllConnectorsPosition().get(0),
-                Level0Connectors.getAllConnectorsOrientation().get(0)));*/
+                    Level0Connectors.getAllConnectorsOrientation().get(x.getIndex()).opposite()));
+        }*/
 
 
         // what follows is for enemy testing only. Comment when working on step 2
@@ -96,32 +91,19 @@ public class level0Room extends ICRogueRoom {
 
 
 
-        public static List <Orientation > getAllConnectorsOrientation(){//I M SURE THAT THERE IS A DIRECT WAY TO PUT ENUM IN A LIST
+        public static List<Orientation> getAllConnectorsOrientation(){//I M SURE THAT THERE IS A DIRECT WAY TO PUT ENUM IN A LIST
+
             List<Orientation> connectorsOrientations = new ArrayList<>();
-
-
-            /*connectorsOrientations.add(E.orientation);
-            connectorsOrientations.add(N.orientation);
-            connectorsOrientations.add(W.orientation);
-            connectorsOrientations.add(S.orientation);*/
-
-
             for (Level0Connectors ori : Level0Connectors.values()) connectorsOrientations.add(ori.orientation);
+
             return connectorsOrientations;
         }//should be sure about the order of the elements
 
 
         public static List <DiscreteCoordinates > getAllConnectorsPosition(){//I M SURE THAT THERE IS A DIRECT WAY TO PUT ENUM IN A LIST
+
             List<DiscreteCoordinates> connectorsPosition = new ArrayList<>();
-
-            /*connectorsPosition.add(W.position);
-            connectorsPosition.add(S.position);
-            connectorsPosition.add(E.position);
-            connectorsPosition.add(N.position);*/
-
-
             for (Level0Connectors pos : Level0Connectors.values()) connectorsPosition.add(pos.position);
-
 
             return connectorsPosition;
         }//should be sure about the order of the elements
