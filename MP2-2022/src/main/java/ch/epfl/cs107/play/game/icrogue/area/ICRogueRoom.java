@@ -21,7 +21,7 @@ public abstract class ICRogueRoom extends Area {
 
     private List<DiscreteCoordinates > connectorsCoordinates;
     private List<Orientation> orientations;
-    public final String behaviorName;//CHY THIS SHIT IS PUBLIC
+    public final String behaviorName; // WHY THIS SHIT IS PUBLIC
 
 
     public ICRogueRoom(String behaviorName, DiscreteCoordinates roomCoordinates){
@@ -70,9 +70,9 @@ public abstract class ICRogueRoom extends Area {
     }
 
 
-
-    //CREATED FOR CONNECTOR
-    public String getTitle(String behaviorName, DiscreteCoordinates coordinates) { return behaviorName + coordinates.x + coordinates.y; }
+    public DiscreteCoordinates getCoordinates(){
+        return coordinates;
+    }
 
 
 
@@ -91,5 +91,10 @@ public abstract class ICRogueRoom extends Area {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void update(float deltaTime) {
+        super.update(deltaTime);
     }
 }

@@ -18,6 +18,13 @@ import java.util.List;
 // to corrector: boule de feu = FireBall and not Fire. hence the name change
 public class FireBall extends Projectiles implements Interactor {
 
+
+    // WARNING
+    //
+    //          fireBall does not go to the end of the doorway
+    //
+    // WARNING
+
     private static final int DAMAGE = 1;
     private static final int MOVE_DURATION = 5;
     private final FireBallInteractionHandler handler;

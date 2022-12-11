@@ -9,6 +9,7 @@ import ch.epfl.cs107.play.game.areagame.handler.AreaInteractionVisitor;
 import ch.epfl.cs107.play.game.icrogue.actor.enemies.Turret;
 import ch.epfl.cs107.play.game.icrogue.actor.items.Cherry;
 import ch.epfl.cs107.play.game.icrogue.actor.items.Item;
+import ch.epfl.cs107.play.game.icrogue.actor.items.Key;
 import ch.epfl.cs107.play.game.icrogue.actor.items.Staff;
 import ch.epfl.cs107.play.game.icrogue.actor.projectiles.FireBall;
 import ch.epfl.cs107.play.game.icrogue.handler.ICRogueInteractionHandler;
@@ -29,6 +30,7 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
     private static final int MOVE_DURATION = 8;
     private final Orientation DEFAULT_ORIENTATION;      // not very clean
     private final ICRoguePlayerInteractionHandler handler;
+    private int KeyID;
 
     public ICRoguePlayer(Area owner, Orientation orientation, DiscreteCoordinates coordinates) {
 
@@ -138,6 +140,7 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
     // =====  Interactor  =====
     // =====              =====
 
+    @Override
     public boolean takeCellSpace(){
         return true;
     }
@@ -149,6 +152,7 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
     public List<DiscreteCoordinates> getFieldOfViewCells() {
         return Collections.singletonList(getCurrentMainCellCoordinates().jump(getOrientation().toVector()));
     }
+
     @Override
     public boolean wantsCellInteraction() {
         return true;
@@ -157,7 +161,6 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
     public boolean wantsViewInteraction() {
         return keyIsPressed(Keyboard.W);
     }
-
     @Override
     public void interactWith(Interactable other, boolean isCellInteraction) {
         other.acceptInteraction(handler, isCellInteraction);
@@ -204,6 +207,15 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
         @Override public void interactWith(Turret turret, boolean isCellInteraction){
             if (isCellInteraction && wantsCellInteraction() && turret.isCellInteractable()){
                 turret.die();
+            }
+        }
+
+        @Override
+        public void interactWith(Key key, boolean isCellInteraction){
+
+            if (isCellInteraction && wantsCellInteraction() && key.isCellInteractable()){
+                key.collect();
+                KeyID = key.getID();
             }
         }
     }

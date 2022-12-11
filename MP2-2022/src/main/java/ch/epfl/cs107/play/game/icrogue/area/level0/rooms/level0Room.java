@@ -7,6 +7,7 @@ import ch.epfl.cs107.play.game.icrogue.actor.Connector;
 import ch.epfl.cs107.play.game.icrogue.actor.ICRoguePlayer;
 import ch.epfl.cs107.play.game.icrogue.actor.enemies.Turret;
 import ch.epfl.cs107.play.game.icrogue.actor.items.Cherry;
+import ch.epfl.cs107.play.game.icrogue.actor.items.Key;
 import ch.epfl.cs107.play.game.icrogue.actor.items.Staff;
 import ch.epfl.cs107.play.game.icrogue.actor.projectiles.Arrow;
 import ch.epfl.cs107.play.game.icrogue.area.ConnectorInRoom;
@@ -41,62 +42,88 @@ public class level0Room extends ICRogueRoom {
         registerActor(new Background(this, this.behaviorName));
         registerActor(new Cherry(this, Orientation.DOWN, new DiscreteCoordinates(6,3) ));
         registerActor(new Staff(this, Orientation.DOWN, new DiscreteCoordinates(4,3) ));
+        registerActor(new Key(this, Orientation.DOWN, new DiscreteCoordinates(5, 4), 0));
+
+
+        /*for (int i = 0; i < Level0Connectors.getAllConnectorsOrientation().size(); i++){
+            registerActor(new Connector(this, Level0Connectors.getAllConnectorsPosition().get(i),
+                    Level0Connectors.getAllConnectorsOrientation().get(i)));
+        }*/
+
+        for (var x : Level0Connectors.values()){
+            registerActor(new Connector(this, Level0Connectors.getAllConnectorsPosition().get(x.getIndex()),
+                    Level0Connectors.getAllConnectorsOrientation().get(x.getIndex())));
+        }
+
+        /*registerActor(new Connector(this, Level0Connectors.getAllConnectorsPosition().get(0),
+                Level0Connectors.getAllConnectorsOrientation().get(0)));*/
 
 
         // what follows is for enemy testing only. Comment when working on step 2
 
-        Orientation[] turretOrientations =
+        /*Orientation[] turretOrientations =
                 new Orientation[] {Orientation.DOWN, Orientation.UP, Orientation.LEFT, Orientation.RIGHT};
 
-        registerActor(new Turret(this, Orientation.DOWN, new DiscreteCoordinates(5, 5), turretOrientations));
+        registerActor(new Turret(this, Orientation.DOWN, new DiscreteCoordinates(5, 5), turretOrientations));*/
     }
 
 
     public enum Level0Connectors implements ConnectorInRoom {
         W(new DiscreteCoordinates(0,4), new DiscreteCoordinates(8, 5), Orientation.LEFT),
-        S( new DiscreteCoordinates(4, 0),new DiscreteCoordinates(5, 8), Orientation.DOWN),
-        E(new DiscreteCoordinates(9, 4),new DiscreteCoordinates(1, 5), Orientation.RIGHT),
-        N( new DiscreteCoordinates(4, 9),new  DiscreteCoordinates(5, 1), Orientation.UP);
+        S(new DiscreteCoordinates(4, 0), new DiscreteCoordinates(5, 8), Orientation.DOWN),
+        E(new DiscreteCoordinates(9, 4), new DiscreteCoordinates(1, 5), Orientation.RIGHT),
+        N(new DiscreteCoordinates(4, 9), new DiscreteCoordinates(5, 1), Orientation.UP);
         private DiscreteCoordinates position;
         private DiscreteCoordinates destination;
         private Orientation orientation;
 
 
-        Level0Connectors(DiscreteCoordinates position , DiscreteCoordinates destination, Orientation orientation) {
-            this.position =position;
-            this.destination=destination;
-            this.orientation=orientation;
+        Level0Connectors(DiscreteCoordinates position, DiscreteCoordinates destination, Orientation orientation) {
+            this.position = position;
+            this.destination = destination;
+            this.orientation = orientation;
         }
 
         @Override
-        public int getIndex() { //have to be here and should change it
+        public int getIndex() {
             return orientation.ordinal();
-        } //should give
+        }
 
         @Override
-        public DiscreteCoordinates getDestination() { //have to be here and should change it
+        public DiscreteCoordinates getDestination() {
             return this.destination;
         }
+
+
+
+        public static List <Orientation > getAllConnectorsOrientation(){//I M SURE THAT THERE IS A DIRECT WAY TO PUT ENUM IN A LIST
+            List<Orientation> connectorsOrientations = new ArrayList<>();
+
+
+            /*connectorsOrientations.add(E.orientation);
+            connectorsOrientations.add(N.orientation);
+            connectorsOrientations.add(W.orientation);
+            connectorsOrientations.add(S.orientation);*/
+
+
+            for (Level0Connectors ori : Level0Connectors.values()) connectorsOrientations.add(ori.orientation);
+            return connectorsOrientations;
+        }//should be sure about the order of the elements
+
+
+        public static List <DiscreteCoordinates > getAllConnectorsPosition(){//I M SURE THAT THERE IS A DIRECT WAY TO PUT ENUM IN A LIST
+            List<DiscreteCoordinates> connectorsPosition = new ArrayList<>();
+
+            /*connectorsPosition.add(W.position);
+            connectorsPosition.add(S.position);
+            connectorsPosition.add(E.position);
+            connectorsPosition.add(N.position);*/
+
+
+            for (Level0Connectors pos : Level0Connectors.values()) connectorsPosition.add(pos.position);
+
+
+            return connectorsPosition;
+        }//should be sure about the order of the elements
     }
-
-
-    static List <Orientation > getAllConnectorsOrientation(){//I M SURE THAT THERE IS A DIRECT WAY TO PUT ENUM IN A LIST
-        List<Orientation> connectorsOrientations=new ArrayList<>();
-        for (Level0Connectors ori : Level0Connectors.values()) connectorsOrientations.add(ori.orientation);
-        return connectorsOrientations;
-    }//should be sure about the order of the elements
-
-
-    static List <DiscreteCoordinates > getAllConnectorsPosition(){//I M SURE THAT THERE IS A DIRECT WAY TO PUT ENUM IN A LIST
-        List<DiscreteCoordinates> connectorsPosition=new ArrayList<>();
-        for (Level0Connectors pos : Level0Connectors.values()) connectorsPosition.add(pos.position);
-        return connectorsPosition;
-    }//should be sure about the order of the elements
-
-
-
-
-
-
-
 }

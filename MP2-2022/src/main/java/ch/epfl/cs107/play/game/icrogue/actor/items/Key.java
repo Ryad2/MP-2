@@ -19,8 +19,14 @@ public class Key extends Item{
     public Key(Area area, Orientation orientation, DiscreteCoordinates position, int ID){
         super(area, orientation, position);
         this.ID=ID;
-        this.sprite= new Sprite("icrogue/cherry", 0.6f, 0.6f, this);
+        this.sprite= new Sprite("icrogue/key", 0.6f, 0.6f, this);
 
+    }
+
+
+
+    public int getID(){
+        return ID;
     }
 
 
@@ -48,7 +54,7 @@ public class Key extends Item{
     }
 
 
-}// should make a methode to memorise the ID in player
+}// should make a method to memorise the ID in player
 
 
 
