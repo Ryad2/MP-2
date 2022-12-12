@@ -6,6 +6,7 @@ import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.game.areagame.actor.Sprite;
 import ch.epfl.cs107.play.game.areagame.handler.AreaInteractionVisitor;
 import ch.epfl.cs107.play.game.icrogue.area.ICRogueRoom;
+import ch.epfl.cs107.play.game.icrogue.handler.ICRogueInteractionHandler;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
 import ch.epfl.cs107.play.math.Vector;
 import ch.epfl.cs107.play.window.Canvas;
@@ -35,9 +36,9 @@ public class Connector extends AreaEntity {
     Map<Condition, Sprite> sprites = new HashMap<>();
 
     public Connector(Area ownerArea, DiscreteCoordinates currentMainCellCoordinates, Orientation orientation) {
-        super(ownerArea, orientation, currentMainCellCoordinates);//maybe owner Area is just an area and not an ICRogue room
+        super(ownerArea, orientation, currentMainCellCoordinates);
 
-        this.condition = Condition.INVISIBLE;//we suppose that the default condition is invisible
+        this.condition = Condition.INVISIBLE;
 
         this.destinationAreaName = ownerArea.getTitle();        // for now using getTitle() of level0Room specifically
                                                                 // need new getTitle for other room types
@@ -74,11 +75,16 @@ public class Connector extends AreaEntity {
             condition = (condition == Condition.OPEN) ? Condition.CLOSED : Condition.OPEN;
         }
     }
+    public void unlock(int ID){
+        if (keyID == ID){
+            condition = Condition.OPEN;
+        }
+    }
 
 
-    // ====         ====
-    // ==== setters ====
-    // ====         ====
+    // ====                     ====
+    // ==== setters and getters ====
+    // ====                     ====
 
     public void setDestinationAreaName(String destinationAreaName) {
         this.destinationAreaName = destinationAreaName;
@@ -86,6 +92,10 @@ public class Connector extends AreaEntity {
 
     public void setTargetCoordinates(DiscreteCoordinates targetCoordinates){
         this.targetCoordinates = targetCoordinates;
+    }
+
+    public String getDestinationAreaName() {
+        return destinationAreaName;
     }
 
     //THIS SHIT CALCULATE THE COORDINATE OF THE FUTURE ROOM OF IN OUR LEVEL
@@ -164,10 +174,8 @@ public class Connector extends AreaEntity {
 
 
 
-
-
-    //IDK BUT I THINK THAT I HAVE TO LET IT EMPTY FOR NOW
     public void acceptInteraction(AreaInteractionVisitor v, boolean isCellInteraction) {
+        ((ICRogueInteractionHandler) v).interactWith(this , isCellInteraction);
     }
 
 

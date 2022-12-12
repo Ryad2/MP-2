@@ -7,7 +7,6 @@ import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.game.areagame.actor.Sprite;
 import ch.epfl.cs107.play.game.areagame.handler.AreaInteractionVisitor;
 import ch.epfl.cs107.play.game.icrogue.actor.enemies.Turret;
-import ch.epfl.cs107.play.game.icrogue.actor.items.Cherry;
 import ch.epfl.cs107.play.game.icrogue.actor.items.Item;
 import ch.epfl.cs107.play.game.icrogue.actor.items.Key;
 import ch.epfl.cs107.play.game.icrogue.actor.items.Staff;
@@ -30,7 +29,20 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
     private static final int MOVE_DURATION = 8;
     private final Orientation DEFAULT_ORIENTATION;      // not very clean
     private final ICRoguePlayerInteractionHandler handler;
+
+
     private int KeyID;
+    private boolean collectedStaff;
+    private boolean launchFireBall;
+    private int fireBallCooldownValue;
+    private final int fireBallCooldown = 10;     // 5 is a placeholder value. It needs to be changed later
+
+
+    private boolean isCrossing;
+    private Connector crossingConnector;
+
+
+    Map<Orientation, Sprite> sprites = new HashMap<>();
 
     public ICRoguePlayer(Area owner, Orientation orientation, DiscreteCoordinates coordinates) {
 
@@ -46,13 +58,23 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
         fireBallCooldownValue = 0;
     }
 
-    private boolean collectedStaff;
-    private boolean launchFireBall;
-    private int fireBallCooldownValue;
-    private final int fireBallCooldown = 10;     // 5 is a placeholder value. It needs to be changed later
 
+    public Sprite getSprites(Orientation orientation){
+        return sprites.get(orientation);
+    }
 
-    Map<Orientation, Sprite> sprites = new HashMap<>();
+    public boolean getIsCrossing(){
+        return isCrossing;
+    }
+
+    public Connector getCrossingConnector() {
+        return crossingConnector;
+    }
+    public void resetCrossing(){
+        crossingConnector = null;
+        isCrossing = false;
+    }
+
     public void createSpriteMAP() {
 
         Sprite down = new Sprite("zelda/player", .75f, 1.5f, this,
@@ -68,10 +90,6 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
         sprites.put(Orientation.DOWN, down);
         sprites.put(Orientation.RIGHT, right);
         sprites.put(Orientation.LEFT, left);
-    }
-
-    public Sprite getSprites(Orientation orientation){
-        return sprites.get(orientation);
     }
 
     public void resetPlayer(){
@@ -216,6 +234,19 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
             if (isCellInteraction && wantsCellInteraction() && key.isCellInteractable()){
                 key.collect();
                 KeyID = key.getID();
+            }
+        }
+
+        @Override
+        public void interactWith(Connector connector, boolean isCellInteraction){
+            if (isCellInteraction && wantsCellInteraction() && connector.isCellInteractable()){
+                if (!isDisplacementOccurs()){
+                    isCrossing = true;
+                    crossingConnector = connector;
+                }
+            }
+            else if (wantsViewInteraction() && connector.isViewInteractable()){
+                connector.unlock(KeyID);
             }
         }
     }

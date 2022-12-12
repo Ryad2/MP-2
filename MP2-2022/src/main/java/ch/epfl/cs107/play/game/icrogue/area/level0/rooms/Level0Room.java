@@ -2,29 +2,25 @@ package ch.epfl.cs107.play.game.icrogue.area.level0.rooms;
 
 import ch.epfl.cs107.play.game.areagame.actor.Background;
 import ch.epfl.cs107.play.game.areagame.actor.Orientation;
-import ch.epfl.cs107.play.game.areagame.actor.Sprite;
-import ch.epfl.cs107.play.game.icrogue.actor.Connector;
-import ch.epfl.cs107.play.game.icrogue.actor.ICRoguePlayer;
-import ch.epfl.cs107.play.game.icrogue.actor.enemies.Turret;
 import ch.epfl.cs107.play.game.icrogue.actor.items.Cherry;
 import ch.epfl.cs107.play.game.icrogue.actor.items.Key;
 import ch.epfl.cs107.play.game.icrogue.actor.items.Staff;
-import ch.epfl.cs107.play.game.icrogue.actor.projectiles.Arrow;
 import ch.epfl.cs107.play.game.icrogue.area.ConnectorInRoom;
 import ch.epfl.cs107.play.game.icrogue.area.ICRogueRoom;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
 
-import java.io.Serializable;
 import java.util.*;
 
-public class level0Room extends ICRogueRoom {
+public class Level0Room extends ICRogueRoom {
+
+    protected final DiscreteCoordinates ITEM_COORDINATES = new DiscreteCoordinates(5, 5);
 
     // =====    WARNING    ==== end of page 6 says something about background in this file
 
     //WE CAN ALSO USE THE getTitle() OF ICROGUE ROOM
     public String getTitle() { return "icrogue/level0" + getCoordinates().x + getCoordinates().y;}
 
-    public level0Room(DiscreteCoordinates roomCoordinates){
+    public Level0Room(DiscreteCoordinates roomCoordinates){
         super(Level0Connectors.getAllConnectorsPosition(), Level0Connectors.getAllConnectorsOrientation(),
                 "icrogue/level0Room", roomCoordinates);
     }
@@ -42,9 +38,9 @@ public class level0Room extends ICRogueRoom {
         super.createArea();
 
         registerActor(new Background(this, getBehaviorName()));
-        registerActor(new Cherry(this, Orientation.DOWN, new DiscreteCoordinates(6,3) ));
+        /*registerActor(new Cherry(this, Orientation.DOWN, new DiscreteCoordinates(6,3) ));
         registerActor(new Staff(this, Orientation.DOWN, new DiscreteCoordinates(4,3) ));
-        registerActor(new Key(this, Orientation.DOWN, new DiscreteCoordinates(5, 4), 0));
+        registerActor(new Key(this, Orientation.DOWN, new DiscreteCoordinates(5, 4), 0));*/
 
 
 
@@ -59,7 +55,11 @@ public class level0Room extends ICRogueRoom {
         /*Orientation[] turretOrientations =
                 new Orientation[] {Orientation.DOWN, Orientation.UP, Orientation.LEFT, Orientation.RIGHT};
 
-        registerActor(new Turret(this, Orientation.DOWN, new DiscreteCoordinates(5, 5), turretOrientations));*/
+        registerActor(new Turret(this, Orientation.DOWN, new DiscreteCoordinates(5, 5), turretOrientations));
+        registerActor(new Turret(this, Orientation.DOWN, new DiscreteCoordinates(5, 6), turretOrientations));
+        registerActor(new Turret(this, Orientation.DOWN, new DiscreteCoordinates(5, 7), turretOrientations));
+        registerActor(new Turret(this, Orientation.DOWN, new DiscreteCoordinates(4, 7), turretOrientations));
+        registerActor(new Turret(this, Orientation.DOWN, new DiscreteCoordinates(3, 7), turretOrientations));*/
     }
 
 

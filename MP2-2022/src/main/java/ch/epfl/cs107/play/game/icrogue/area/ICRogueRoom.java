@@ -41,10 +41,15 @@ public abstract class ICRogueRoom extends Area {
         this.coordinates = roomCoordinates;
         this.behaviorName = behaviorName;
 
+
+        connectors = new ArrayList<>();
         // I create the Connectors here to lighten the later code
-        /*for (int i = 0; i < connectorsCoordinates.size(); i++){
-            connectors.add(new Connector(this, connectorsCoordinates.get(i), orientations.get(i)));
-        }*/
+        for (int i = 0; i < connectorsCoordinates.size(); i++){
+            connectors.add(new Connector(this, connectorsCoordinates.get(i), orientations.get(i).opposite()));
+        }
+
+
+
 
         this.connectorsCoordinates = connectorsCoordinates;
         this.orientations = orientations;
@@ -60,9 +65,11 @@ public abstract class ICRogueRoom extends Area {
     public String getBehaviorName(){
         return behaviorName;
     }
+
     public DiscreteCoordinates getCoordinates(){
         return coordinates;
     }
+
     public String getTitle() {              // WHY IS IT OVERWRITTEN !?
         return behaviorName;
     }
@@ -83,13 +90,21 @@ public abstract class ICRogueRoom extends Area {
      * Note it set the Behavior as needed !
      */
     protected void createArea(){
-        this.connectors = new ArrayList<>();
+        //this.connectors = new ArrayList<>();
 
-        for (int i=0; i<orientations.size(); i++){
+        /*for (int i=0; i<orientations.size(); i++){
             connectors.add(new Connector(this, connectorsCoordinates.get(i), orientations.get(i).opposite()));
             registerActor(connectors.get(i));
+        }*/
+
+        for (var x : connectors){
+            registerActor(x);
         }
     }
+
+    // ====                             ====
+    // ==== methods for the Level class ====
+    // ====                             ====
 
     public void setConnectorDestination(int connectorIndex, String destination, DiscreteCoordinates targetCoordinates){
         Connector connector = connectors.get(connectorIndex);

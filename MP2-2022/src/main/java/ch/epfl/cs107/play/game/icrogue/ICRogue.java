@@ -4,7 +4,9 @@ import ch.epfl.cs107.play.game.areagame.AreaGame;
 import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.game.icrogue.actor.ICRoguePlayer;
 import ch.epfl.cs107.play.game.icrogue.area.ICRogueRoom;
-import ch.epfl.cs107.play.game.icrogue.area.level0.rooms.level0Room;
+import ch.epfl.cs107.play.game.icrogue.area.Level;
+import ch.epfl.cs107.play.game.icrogue.area.level0.Level0;
+import ch.epfl.cs107.play.game.icrogue.area.level0.rooms.Level0Room;
 import ch.epfl.cs107.play.io.FileSystem;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
 import ch.epfl.cs107.play.window.Keyboard;
@@ -13,14 +15,28 @@ import ch.epfl.cs107.play.window.Window;
 // copies Tuto2
 public class ICRogue extends AreaGame {
     private ICRogueRoom currentRoom;
+    private Level level0;
+
+
+    public void setCurrentRoom(String roomKey){
+        currentRoom = (ICRogueRoom)setCurrentArea(roomKey, true);
+    }
 
 
     private void initLevel(String areaKey){
-        currentRoom = new level0Room(new DiscreteCoordinates(0, 0));
+
+        level0 = new Level0(this);
+
+        player = new ICRoguePlayer(currentRoom, Orientation.UP, new DiscreteCoordinates(2, 2));
+        player.enterArea(currentRoom, new DiscreteCoordinates(2, 2));
+
+
+
+        /*currentRoom = new Level0Room(new DiscreteCoordinates(0, 0));
         addArea(currentRoom);
         setCurrentArea(areaKey, true);
         player = new ICRoguePlayer(currentRoom, Orientation.UP, new DiscreteCoordinates(2,2));
-        player.enterArea(currentRoom, new DiscreteCoordinates(2, 2));
+        player.enterArea(currentRoom, new DiscreteCoordinates(2, 2));*/
     }
 
 
@@ -41,7 +57,7 @@ public class ICRogue extends AreaGame {
     }
 
     @Override
-    public boolean begin(Window window, FileSystem fileSystem) {
+    public boolean begin(Window window, FileSystem fileSystem) {        // this code is outdated
 
         if (super.begin(window, fileSystem)) {
             createAreas();
@@ -53,24 +69,33 @@ public class ICRogue extends AreaGame {
 
     }
 
-    /*private void initArea(String areaKey) {
-
-        Tuto2Area area = (Tuto2Area)setCurrentArea(areaKey, true);
-        DiscreteCoordinates coords = area.getPlayerSpawnPosition();
-        player = new ICRoguePlayer(area, Orientation.DOWN, coords,"ghost.1");
-        player.enterArea(area, coords);
-        player.centerCamera();
-
-    }*/
     @Override
     public void update(float deltaTime) {
         if(currentRoom.getKeyboard().get(Keyboard.R).isDown()){
             restartArea();
-        }//BIG SHITTTTT TO CORRECT
+        }
+
+        if (player.getIsCrossing()){
+            switchRoom();
+        }
 
 
          super.update(deltaTime);
     }
+
+    protected void switchRoom() {
+
+        player.leaveArea();
+
+        currentRoom = (ICRogueRoom)setCurrentArea(player.getCrossingConnector().getDestinationAreaName(),
+                false);
+
+        player.enterArea(currentRoom, new DiscreteCoordinates(2, 2));       // need to put this, and other like this in a constant
+                                                                                  // is currently in Level0, but inaccessible
+
+        player.resetCrossing();
+    }
+
 
     private void restartArea(){
 
