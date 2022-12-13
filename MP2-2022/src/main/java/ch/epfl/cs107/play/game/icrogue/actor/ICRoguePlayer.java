@@ -205,10 +205,10 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
         @Override
         public void interactWith(Item item, boolean isCellInteraction){
 
-            if (isCellInteraction && wantsCellInteraction() && item.isCellInteractable()){      // check if WantsCellInteraction
-                item.collect();                                                                 // is necessary
+            if (isCellInteraction && item.isCellInteractable()){
+                item.collect();
             }
-            else if (wantsViewInteraction() && item.isViewInteractable()){
+            else if (item.isViewInteractable()){
                 item.collect();
             }
         }
@@ -216,14 +216,14 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
         @Override
         public void interactWith(Staff item, boolean isCellInteraction){
 
-            if (!isCellInteraction && wantsViewInteraction() && item.isViewInteractable()){
+            if (!isCellInteraction && item.isViewInteractable()){
                 item.collect();
                 collectedStaff = true;
             }
         }
 
         @Override public void interactWith(Turret turret, boolean isCellInteraction){
-            if (isCellInteraction && wantsCellInteraction() && turret.isCellInteractable()){
+            if (isCellInteraction && turret.isCellInteractable()){
                 turret.die();
             }
         }
@@ -231,7 +231,7 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
         @Override
         public void interactWith(Key key, boolean isCellInteraction){
 
-            if (isCellInteraction && wantsCellInteraction() && key.isCellInteractable()){
+            if (isCellInteraction && key.isCellInteractable()){
                 key.collect();
                 KeyID = key.getID();
             }
@@ -239,13 +239,13 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
 
         @Override
         public void interactWith(Connector connector, boolean isCellInteraction){
-            if (isCellInteraction && wantsCellInteraction() && connector.isCellInteractable()){
+            if (isCellInteraction && connector.isCellInteractable()){
                 if (!isDisplacementOccurs()){
                     isCrossing = true;
                     crossingConnector = connector;
                 }
             }
-            else if (wantsViewInteraction() && connector.isViewInteractable()){
+            else if (connector.isViewInteractable()){
                 connector.unlock(KeyID);
             }
         }

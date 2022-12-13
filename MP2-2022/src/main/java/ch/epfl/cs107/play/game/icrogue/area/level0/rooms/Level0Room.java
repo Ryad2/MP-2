@@ -81,7 +81,7 @@ public class Level0Room extends ICRogueRoom {
 
         @Override
         public int getIndex() {
-            return orientation.ordinal();
+            return ordinal();
         }
 
         @Override

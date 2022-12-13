@@ -60,6 +60,9 @@ public abstract class Level {            // not getters are to appear in this cl
     protected void setRoomConnector(DiscreteCoordinates coordinates, String destination, ConnectorInRoom connector){
         ICRogueRoom room = map[coordinates.x][coordinates.y];
 
+        System.out.println(connector.getIndex());
+        System.out.println(connector);
+
         room.setConnector(connector.getIndex(), destination, coordinates); // it is currently locked with NO_KEY_ID. fix
     }
 
