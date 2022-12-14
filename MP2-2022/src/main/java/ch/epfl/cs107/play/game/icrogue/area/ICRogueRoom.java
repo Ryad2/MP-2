@@ -115,7 +115,7 @@ public abstract class ICRogueRoom extends Area {
     public void setConnector(int connectorIndex, String destination, DiscreteCoordinates targetCoordinates){
         setConnectorDestination(connectorIndex, destination, targetCoordinates);
 
-        connectors.get(connectorIndex).lock(Connector.NO_KEY_ID);
+        connectors.get(connectorIndex).close();
     }
 
     public void setConnectorKey(int connectorIndex, int keyID){

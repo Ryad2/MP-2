@@ -62,8 +62,13 @@ public class Connector extends AreaEntity {
 
 
     public void open(){
-        if (condition != Condition.LOCKED){
+        if (condition != Condition.LOCKED && condition != Condition.INVISIBLE){
             condition = Condition.OPEN;
+        }
+    }
+    public void close(){
+        if (condition != Condition.LOCKED){
+            condition = Condition.CLOSED;
         }
     }
     public void lock(int ID){
@@ -71,12 +76,12 @@ public class Connector extends AreaEntity {
         keyID = ID;
     }
     public void switchState(){
-        if (condition != Condition.LOCKED){
+        if (condition != Condition.LOCKED && condition != Condition.INVISIBLE){
             condition = (condition == Condition.OPEN) ? Condition.CLOSED : Condition.OPEN;
         }
     }
     public void unlock(int ID){
-        if (keyID == ID){
+        if (keyID == ID && condition == Condition.LOCKED){
             condition = Condition.OPEN;
         }
     }
@@ -98,6 +103,10 @@ public class Connector extends AreaEntity {
         return destinationAreaName;
     }
 
+    public DiscreteCoordinates getTargetCoordinates() {
+        return targetCoordinates;
+    }
+
     //THIS SHIT CALCULATE THE COORDINATE OF THE FUTURE ROOM OF IN OUR LEVEL
     //can use methods Left() Right() and jump .... of DiscreteCoordinates
     //THIS SHIT IS NOT ASKED TO DO
@@ -111,14 +120,6 @@ public class Connector extends AreaEntity {
     //HAVE TO MAKE IT CLEAN IT IS TOO DISGUSTING
     public DiscreteCoordinates futureCoordinatesFinder(DiscreteCoordinates currentMainCellCoordinates,Orientation orientation){
         return new DiscreteCoordinates((int)(currentMainCellCoordinates.x-orientation.toVector().x* this.getOwnerArea().getWidth()), (int)(currentMainCellCoordinates.y-orientation.toVector().y* this.getOwnerArea().getHeight()));
-    }
-
-
-
-
-    //sure that we will need it one day to put our player in the next room
-    public DiscreteCoordinates getTargetCoordinates() {
-        return targetCoordinates;
     }
 
 
@@ -155,7 +156,7 @@ public class Connector extends AreaEntity {
 
 
     public boolean takeCellSpace() {
-        return condition != Condition.OPEN;
+        return !condition.equals(Condition.OPEN);
     }
 
     @Override

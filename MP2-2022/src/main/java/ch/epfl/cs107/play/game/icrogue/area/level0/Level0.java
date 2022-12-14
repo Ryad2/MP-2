@@ -68,8 +68,8 @@ public class Level0 extends Level {
 
     @Override
     protected void generateFixedMap() {
-        generateMap1();
+        //generateMap1();
 
-        //generateMap2();
+        generateMap2();
     }
 }

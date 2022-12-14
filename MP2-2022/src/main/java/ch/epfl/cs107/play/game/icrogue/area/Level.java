@@ -52,7 +52,7 @@ public abstract class Level {            // not getters are to appear in this cl
     }
 
     /**
-     * add a desitination to the connector in the argument, and locks the connector
+     * add a desitination to the connector in the argument, and lock the connector
      * @param coordinates
      * @param destination
      * @param connector
@@ -63,7 +63,7 @@ public abstract class Level {            // not getters are to appear in this cl
         System.out.println(connector.getIndex());
         System.out.println(connector);
 
-        room.setConnector(connector.getIndex(), destination, coordinates); // it is currently locked with NO_KEY_ID. fix
+        room.setConnector(connector.getIndex(), destination, coordinates);
     }
 
     /**
