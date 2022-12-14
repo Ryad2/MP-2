@@ -7,6 +7,7 @@ import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.game.areagame.actor.Sprite;
 import ch.epfl.cs107.play.game.icrogue.ICRogueBehavior;
 import ch.epfl.cs107.play.game.icrogue.actor.ICRoguePlayer;
+import ch.epfl.cs107.play.game.icrogue.actor.enemies.WalkingTurret;
 import ch.epfl.cs107.play.game.icrogue.handler.ICRogueInteractionHandler;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
 import ch.epfl.cs107.play.math.RegionOfInterest;
@@ -65,7 +66,7 @@ public class Arrow extends Projectiles implements Interactor {
         @Override
         public void interactWith(ICRoguePlayer player, boolean isCellInteraction) {
 
-            if (isCellInteraction && player.isCellInteractable() && wantsCellInteraction()){
+            if (isCellInteraction && player.isCellInteractable()){
                 player.takeDamage();
                 consume();
             }
@@ -78,6 +79,14 @@ public class Arrow extends Projectiles implements Interactor {
             ICRogueBehavior.ICRogueCellType hole = ICRogueBehavior.ICRogueCellType.HOLE;
 
             if (!isCellInteraction && (cell.getType() == wall || cell.getType() == hole)){
+                consume();
+            }
+        }
+
+        @Override
+        public void interactWith(WalkingTurret turret, boolean isCellInteraction) {
+            if (turret.isCellInteractable() && isCellInteraction){
+                turret.redirect(getOrientation());
                 consume();
             }
         }

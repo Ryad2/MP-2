@@ -7,6 +7,7 @@ import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.game.areagame.actor.Sprite;
 import ch.epfl.cs107.play.game.areagame.handler.AreaInteractionVisitor;
 import ch.epfl.cs107.play.game.icrogue.actor.enemies.Turret;
+import ch.epfl.cs107.play.game.icrogue.actor.enemies.WalkingTurret;
 import ch.epfl.cs107.play.game.icrogue.actor.items.Item;
 import ch.epfl.cs107.play.game.icrogue.actor.items.Key;
 import ch.epfl.cs107.play.game.icrogue.actor.items.Staff;
@@ -156,6 +157,7 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
         System.out.println("ouch " + hitPoints + " hit points left");
 
         if (hitPoints == 0){
+            abortCurrentMove();
             leaveArea();
             System.out.println("Game Over");
         }
@@ -233,10 +235,16 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
             }
         }
 
-        @Override public void interactWith(Turret turret, boolean isCellInteraction){
+        @Override
+        public void interactWith(Turret turret, boolean isCellInteraction){
             if (isCellInteraction && turret.isCellInteractable()){
                 turret.die();
             }
+        }
+
+        @Override
+        public void interactWith(WalkingTurret turret, boolean isCellInteraction) {
+            interactWith((Turret)turret, isCellInteraction);
         }
 
         @Override

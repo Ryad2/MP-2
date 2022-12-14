@@ -53,11 +53,17 @@ public class Turret extends ICRogueActor {
     }
 
 
-    private void launch(){
-
+    protected void launch(){
         for (Orientation orientation : targetOrientations){
-
             Arrow.createArrow(getOwnerArea(), orientation, getCurrentMainCellCoordinates());
+        }
+    }
+
+    protected void launch(Orientation removedOrientation){
+        for (Orientation orientation : targetOrientations){
+            if (!orientation.equals(removedOrientation)){
+                Arrow.createArrow(getOwnerArea(), orientation, getCurrentMainCellCoordinates());
+            }
         }
     }
 
@@ -68,5 +74,10 @@ public class Turret extends ICRogueActor {
     @Override
     public void acceptInteraction(AreaInteractionVisitor v, boolean isCellInteraction) {
         ((ICRogueInteractionHandler) v).interactWith(this , isCellInteraction);
+    }
+
+    @Override
+    public boolean isViewInteractable() {
+        return true;
     }
 }

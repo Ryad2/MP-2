@@ -3,16 +3,13 @@ package ch.epfl.cs107.play.game.icrogue.area.level0;
 import ch.epfl.cs107.play.game.areagame.AreaGame;
 import ch.epfl.cs107.play.game.icrogue.ICRogue;
 import ch.epfl.cs107.play.game.icrogue.area.Level;
-import ch.epfl.cs107.play.game.icrogue.area.level0.rooms.Level0KeyRoom;
-import ch.epfl.cs107.play.game.icrogue.area.level0.rooms.Level0Room;
-import ch.epfl.cs107.play.game.icrogue.area.level0.rooms.Level0StaffRoom;
-import ch.epfl.cs107.play.game.icrogue.area.level0.rooms.Level0TurretRoom;
+import ch.epfl.cs107.play.game.icrogue.area.level0.rooms.*;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
 
 public class Level0 extends Level {
 
     private final static DiscreteCoordinates DEFAULT_STARTING_ROOM_POSITION = new DiscreteCoordinates(0, 0);
-    private final static DiscreteCoordinates startingRoomPosition = new DiscreteCoordinates(0, 0);
+    private final static DiscreteCoordinates startingRoomPosition = new DiscreteCoordinates(1, 1);
     private final static DiscreteCoordinates DEFAULT_START_POSITION = new DiscreteCoordinates(2, 2);
     private final static DiscreteCoordinates DEFAULT_LEVEL_SIZE = new DiscreteCoordinates(4, 2);
 
@@ -72,7 +69,7 @@ public class Level0 extends Level {
         int BOSS_KEY_ID = 2;
 
         DiscreteCoordinates room00 = new DiscreteCoordinates(0, 0);
-        setRoom(room00, new Level0TurretRoom(room00));
+        setRoom(room00, new Level0BossRoom(room00));
         setRoomConnector(room00, "icrogue/level010", Level0Room.Level0Connectors.E);
 
         DiscreteCoordinates room10 = new DiscreteCoordinates(1, 0);

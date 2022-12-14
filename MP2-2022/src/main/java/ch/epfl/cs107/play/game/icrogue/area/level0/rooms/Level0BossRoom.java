@@ -5,9 +5,9 @@ import ch.epfl.cs107.play.game.icrogue.actor.enemies.Turret;
 import ch.epfl.cs107.play.game.icrogue.actor.enemies.WalkingTurret;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
 
-public class Level0TurretRoom extends Level0EnemyRoom {
+public class Level0BossRoom extends Level0EnemyRoom{
 
-    public Level0TurretRoom(DiscreteCoordinates roomCoordinates) {
+    public Level0BossRoom(DiscreteCoordinates roomCoordinates) {
         super(roomCoordinates);
 
         addEnemy(new Turret(this, Orientation.DOWN, new DiscreteCoordinates(1, 8),
@@ -15,5 +15,14 @@ public class Level0TurretRoom extends Level0EnemyRoom {
 
         addEnemy(new Turret(this, Orientation.DOWN, new DiscreteCoordinates(8, 1),
                 new Orientation[] {Orientation.LEFT, Orientation.UP}));
+
+        addEnemy(new WalkingTurret(this, Orientation.DOWN, new DiscreteCoordinates(8, 3),
+                new Orientation[] {Orientation.LEFT, Orientation.UP}));
+
+        addEnemy(new WalkingTurret(this, Orientation.RIGHT, new DiscreteCoordinates(1, 3),
+                new Orientation[] {Orientation.UP, Orientation.DOWN}));
+
+        /*addEnemy(new WalkingTurret(this, Orientation.DOWN, new DiscreteCoordinates(8, 3),
+                new Orientation[] {}));*/
     }
 }
