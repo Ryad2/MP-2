@@ -34,32 +34,9 @@ public class Level0Room extends ICRogueRoom {
     protected void
 
     createArea() {
-
         super.createArea();
 
         registerActor(new Background(this, getBehaviorName()));
-        /*registerActor(new Cherry(this, Orientation.DOWN, new DiscreteCoordinates(6,3) ));
-        registerActor(new Staff(this, Orientation.DOWN, new DiscreteCoordinates(4,3) ));
-        registerActor(new Key(this, Orientation.DOWN, new DiscreteCoordinates(5, 4), 0));*/
-
-
-
-        /*for (var x : Level0Connectors.values()){
-            registerActor(new Connector(this, Level0Connectors.getAllConnectorsPosition().get(x.getIndex()),
-                    Level0Connectors.getAllConnectorsOrientation().get(x.getIndex()).opposite()));
-        }*/
-
-
-        // what follows is for enemy testing only. Comment when working on step 2
-
-        /*Orientation[] turretOrientations =
-                new Orientation[] {Orientation.DOWN, Orientation.UP, Orientation.LEFT, Orientation.RIGHT};
-
-        registerActor(new Turret(this, Orientation.DOWN, new DiscreteCoordinates(5, 5), turretOrientations));
-        registerActor(new Turret(this, Orientation.DOWN, new DiscreteCoordinates(5, 6), turretOrientations));
-        registerActor(new Turret(this, Orientation.DOWN, new DiscreteCoordinates(5, 7), turretOrientations));
-        registerActor(new Turret(this, Orientation.DOWN, new DiscreteCoordinates(4, 7), turretOrientations));
-        registerActor(new Turret(this, Orientation.DOWN, new DiscreteCoordinates(3, 7), turretOrientations));*/
     }
 
 

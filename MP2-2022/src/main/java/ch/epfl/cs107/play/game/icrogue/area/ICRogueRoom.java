@@ -22,9 +22,7 @@ public abstract class ICRogueRoom extends Area {
     private ICRogueBehavior behavior;
 
 
-    private List<Connector> connectors;
-    private List<DiscreteCoordinates> connectorsCoordinates;
-    private List<Orientation> orientations;
+    protected List<Connector> connectors;
     private final String behaviorName;
 
 
@@ -47,12 +45,6 @@ public abstract class ICRogueRoom extends Area {
         for (int i = 0; i < connectorsCoordinates.size(); i++){
             connectors.add(new Connector(this, connectorsCoordinates.get(i), orientations.get(i).opposite()));
         }
-
-
-
-
-        this.connectorsCoordinates = connectorsCoordinates;
-        this.orientations = orientations;
     }
     /*enum W(west) S(south) E(est) N(north)*/
 
@@ -90,13 +82,6 @@ public abstract class ICRogueRoom extends Area {
      * Note it set the Behavior as needed !
      */
     protected void createArea(){
-        //this.connectors = new ArrayList<>();
-
-        /*for (int i=0; i<orientations.size(); i++){
-            connectors.add(new Connector(this, connectorsCoordinates.get(i), orientations.get(i).opposite()));
-            registerActor(connectors.get(i));
-        }*/
-
         for (var x : connectors){
             registerActor(x);
         }

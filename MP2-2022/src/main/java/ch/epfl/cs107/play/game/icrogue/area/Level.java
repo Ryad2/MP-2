@@ -6,10 +6,10 @@ import ch.epfl.cs107.play.math.DiscreteCoordinates;
 
 public abstract class Level {            // not getters are to appear in this class
 
-    private ICRogueRoom[][] map;
-    private DiscreteCoordinates arrivalCoordinates;
-    private DiscreteCoordinates bossRoomCoordinates;
-    private DiscreteCoordinates startingRoomCoordinates;
+    private final ICRogueRoom[][] map;
+    private final DiscreteCoordinates arrivalCoordinates;
+    private final DiscreteCoordinates bossRoomCoordinates;
+    private final DiscreteCoordinates startingRoomCoordinates;
     private String startingRoomTitle;
 
 
@@ -48,7 +48,7 @@ public abstract class Level {            // not getters are to appear in this cl
 
         ICRogueRoom room = map[coordinates.x][coordinates.y];
 
-        room.setConnectorDestination(connector.getIndex(), destination, coordinates);
+        room.setConnectorDestination(connector.getIndex(), destination, connector.getDestination());
     }
 
     /**
@@ -60,10 +60,7 @@ public abstract class Level {            // not getters are to appear in this cl
     protected void setRoomConnector(DiscreteCoordinates coordinates, String destination, ConnectorInRoom connector){
         ICRogueRoom room = map[coordinates.x][coordinates.y];
 
-        System.out.println(connector.getIndex());
-        System.out.println(connector);
-
-        room.setConnector(connector.getIndex(), destination, coordinates);
+        room.setConnector(connector.getIndex(), destination, connector.getDestination());
     }
 
     /**
@@ -98,5 +95,11 @@ public abstract class Level {            // not getters are to appear in this cl
         }
 
         game.setCurrentRoom(startingRoomTitle);
+    }
+
+    public void beatRoom(String bossRoom){
+        if (map[bossRoomCoordinates.x][bossRoomCoordinates.y].getTitle().equals(bossRoom)){
+            System.out.println("Win");
+        }
     }
 }

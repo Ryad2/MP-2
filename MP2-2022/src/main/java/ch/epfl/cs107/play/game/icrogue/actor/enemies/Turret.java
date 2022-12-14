@@ -6,6 +6,7 @@ import ch.epfl.cs107.play.game.areagame.actor.Sprite;
 import ch.epfl.cs107.play.game.areagame.handler.AreaInteractionVisitor;
 import ch.epfl.cs107.play.game.icrogue.actor.ICRogueActor;
 import ch.epfl.cs107.play.game.icrogue.actor.projectiles.Arrow;
+import ch.epfl.cs107.play.game.icrogue.area.level0.rooms.Level0EnemyRoom;
 import ch.epfl.cs107.play.game.icrogue.handler.ICRogueInteractionHandler;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
 import ch.epfl.cs107.play.math.RegionOfInterest;
@@ -16,7 +17,7 @@ public class Turret extends ICRogueActor {
     private boolean isDead;
     private final Orientation[] targetOrientations;       // might want to change the type later
 
-    private final float COOLDOWN = 1.f;
+    private final float COOLDOWN = 2.f;
     private float cooldown = 0;
 
     public boolean getLivingStatus(){       // change the getter name
@@ -26,7 +27,8 @@ public class Turret extends ICRogueActor {
     public void die(){
         if (!isDead){
             isDead = true;
-            leaveArea();
+            Level0EnemyRoom room = (Level0EnemyRoom)getOwnerArea();
+            room.removeEnemy(this);
         }
     }
 

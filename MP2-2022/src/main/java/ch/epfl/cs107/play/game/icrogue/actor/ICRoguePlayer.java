@@ -35,7 +35,8 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
     private boolean collectedStaff;
     private boolean launchFireBall;
     private int fireBallCooldownValue;
-    private final int fireBallCooldown = 10;     // 5 is a placeholder value. It needs to be changed later
+    private final int fireBallCooldown = 10;     // 10 is a placeholder value. It needs to be changed later
+    private int hitPoints = 3;
 
 
     private boolean isCrossing;
@@ -151,7 +152,17 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
     }
 
     public void takeDamage(){
-        System.out.println("ouch");
+        hitPoints--;
+        System.out.println("ouch " + hitPoints + " hit points left");
+
+        if (hitPoints == 0){
+            leaveArea();
+            System.out.println("Game Over");
+        }
+    }
+
+    public void moveToNewRoom(){
+        setCurrentPosition(crossingConnector.getTargetCoordinates().toVector());
     }
 
     // =====              =====
