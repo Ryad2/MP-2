@@ -18,11 +18,15 @@ public class WalkingTurret extends Turret implements Interactor { // for now, it
     private static final int MOVE_DURATION = 8;
     private final WalkingTurretInteractionHandler handler;
 
+    private updateInterface updateMethod;
+
     public WalkingTurret(Area owner, Orientation orientation, DiscreteCoordinates coordinates,
                          Orientation[] targetOrientations) {
         super(owner, orientation, coordinates, targetOrientations);
 
         handler = new WalkingTurretInteractionHandler();
+
+        updateMethod = this::normalUpdate;
     }
 
     public void redirect(Orientation orientation){
@@ -31,15 +35,32 @@ public class WalkingTurret extends Turret implements Interactor { // for now, it
 
     @Override
     public void die() {
-        resetMotion();
-        super.die();
+        updateMethod = this::deathUpdate;
+    }
+
+    private void normalUpdate(float deltaTime){
+        super.update(deltaTime);
+
+        move(MOVE_DURATION);
+    }
+
+    private void deathUpdate(float deltaTime){
+        if (!isDisplacementOccurs()){
+            super.die();
+        }
+
+        super.update(deltaTime);
     }
 
     @Override
     public void update(float deltaTime) {
-        super.update(deltaTime);
+        updateMethod.update(deltaTime);
+    }
 
-        move(MOVE_DURATION);
+    // this is a delegate. We were not taught to do this
+    @FunctionalInterface
+    private interface updateInterface{
+        void update(float deltaTime);
     }
 
     @Override
@@ -53,7 +74,7 @@ public class WalkingTurret extends Turret implements Interactor { // for now, it
 
     @Override
     public boolean takeCellSpace(){
-        return true;
+        return false;
     }
     @Override
     public List<DiscreteCoordinates> getCurrentCells() {
@@ -96,11 +117,11 @@ public class WalkingTurret extends Turret implements Interactor { // for now, it
         }
 
 
-        /*@Override                                                            // it will interact with itself
+        @Override
         public void interactWith(Turret turret, boolean isCellInteraction) {
-            if (turret.isViewInteractable() && !isCellInteraction){
+            if (turret.isViewInteractable() && !isCellInteraction && !turret.equals(WalkingTurret.this)){
                 orientate(getOrientation().opposite());
             }
-        }*/
+        }
     }
 }

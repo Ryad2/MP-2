@@ -44,6 +44,9 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
     private Connector crossingConnector;
 
 
+    private updateInterface updateMethod;
+
+
     Map<Orientation, Sprite> sprites = new HashMap<>();
 
     public ICRoguePlayer(Area owner, Orientation orientation, DiscreteCoordinates coordinates) {
@@ -58,6 +61,8 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
         collectedStaff = false;
         launchFireBall = false;
         fireBallCooldownValue = 0;
+
+        updateMethod = this::normalUpdate;
     }
 
 
@@ -100,9 +105,7 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
                                                 // to lazy to check
     }
 
-
-    public void update(float deltaTime) {
-
+    private void normalUpdate(float deltaTime){
         Keyboard keyboard = getOwnerArea().getKeyboard();
 
         moveIfPressed(Orientation.LEFT, keyboard.get(Keyboard.LEFT));
@@ -128,6 +131,27 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
             launchFireBall = false;
             fireBallCooldownValue = fireBallCooldown;
         }
+    }
+
+    private void deathUpdate(float deltaTime){
+
+        if (!isDisplacementOccurs()){
+            leaveArea();
+        }
+
+        super.update(deltaTime);
+    }
+
+
+    public void update(float deltaTime) {
+
+        updateMethod.update(deltaTime);
+    }
+
+    // this is a delegate. We were not taught to do this
+    @FunctionalInterface
+    private interface updateInterface {
+        void update(float deltaTime);
     }
 
     // Keyboard interactions
@@ -157,8 +181,7 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
         System.out.println("ouch " + hitPoints + " hit points left");
 
         if (hitPoints == 0){
-            abortCurrentMove();
-            leaveArea();
+            updateMethod = this::deathUpdate;
             System.out.println("Game Over");
         }
     }

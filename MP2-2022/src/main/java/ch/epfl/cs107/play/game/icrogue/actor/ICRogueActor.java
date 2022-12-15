@@ -17,28 +17,15 @@ import java.util.Collections;
 import java.util.List;
 
 
-public class ICRogueActor extends MovableAreaEntity{
+public abstract class ICRogueActor extends MovableAreaEntity{
 
     public ICRogueActor(Area owner, Orientation orientation, DiscreteCoordinates coordinates ){
         super(owner, orientation, coordinates);
     }
 
-
     protected Sprite sprite;
-    /// Animation duration in frame number
 
     private final static int MOVE_DURATION = 8;
-
-
-
-
-
-
-    /*public void centerCamera() {
-        getOwnerArea().setViewCandidate(this);
-    }*/
-
-
 
 
     /**
@@ -67,7 +54,7 @@ public class ICRogueActor extends MovableAreaEntity{
     }
 
 
-    ///Ghost implements Interactable
+    // Interactable
 
     @Override
     public boolean takeCellSpace() {
@@ -91,9 +78,6 @@ public class ICRogueActor extends MovableAreaEntity{
     @Override
     public void acceptInteraction(AreaInteractionVisitor v, boolean isCellInteraction) {
     }
-
-
-
 }
 
 
