@@ -67,7 +67,7 @@ public class Arrow extends Projectiles implements Interactor {
         public void interactWith(ICRoguePlayer player, boolean isCellInteraction) {
 
             if (isCellInteraction && player.isCellInteractable()){
-                player.takeDamage();
+                player.takeDamage(DAMAGE);
                 consume();
             }
         }

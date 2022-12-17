@@ -12,13 +12,9 @@ import ch.epfl.cs107.play.math.DiscreteCoordinates;
 import ch.epfl.cs107.play.math.RegionOfInterest;
 import ch.epfl.cs107.play.math.Vector;
 
-public class Turret extends Enemy {
+public class Enemy extends ICRogueActor {
 
     private boolean isDead;
-    private final Orientation[] targetOrientations;       // might want to change the type later
-
-    private final float COOLDOWN = 2.f;
-    private float cooldown = 0;
 
     public boolean getLivingStatus(){       // change the getter name
         return isDead;
@@ -32,12 +28,12 @@ public class Turret extends Enemy {
         }
     }
 
-    public Turret(Area owner, Orientation orientation, DiscreteCoordinates coordinates, Orientation[] targetOrientations){
+    public Enemy(Area owner, Orientation orientation, DiscreteCoordinates coordinates){
         super(owner, orientation, coordinates);
-        this.targetOrientations = targetOrientations.clone();
 
         sprite = getSprite();
     }
+
 
     protected Sprite getSprite(){
         return new Sprite("icrogue/static_npc", 1f, 1.5f, this,
@@ -47,28 +43,7 @@ public class Turret extends Enemy {
     @Override
     public void update(float deltaTime) {
 
-        cooldown += deltaTime;
-        if (cooldown > COOLDOWN){
-            cooldown = 0;
-            launch();
-        }
-
         super.update(deltaTime);
-    }
-
-
-    protected void launch(){
-        for (Orientation orientation : targetOrientations){
-            Arrow.createArrow(getOwnerArea(), orientation, getCurrentMainCellCoordinates());
-        }
-    }
-
-    protected void launch(Orientation removedOrientation){
-        for (Orientation orientation : targetOrientations){
-            if (!orientation.equals(removedOrientation)){
-                Arrow.createArrow(getOwnerArea(), orientation, getCurrentMainCellCoordinates());
-            }
-        }
     }
 
 
@@ -77,7 +52,6 @@ public class Turret extends Enemy {
 
     @Override
     public void acceptInteraction(AreaInteractionVisitor v, boolean isCellInteraction) {
-        ((ICRogueInteractionHandler) v).interactWith(this , isCellInteraction);
     }
 
     @Override

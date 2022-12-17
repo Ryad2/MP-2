@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dd16bcf7-c88b-4c3e-bc22-98209ce54ebf" name="Changes" comment="death while moving bugs repaired. Game is playable">
+    <list default="true" id="dd16bcf7-c88b-4c3e-bc22-98209ce54ebf" name="Changes" comment="test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/ICRogueActor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/ICRogueActor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/enemies/Turret.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/enemies/Turret.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/enemies/WalkingTurret.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/enemies/WalkingTurret.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/Level0BossRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/Level0BossRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/Level0TurretRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/Level0TurretRoom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer$ICRoguePlayerInteractionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer$ICRoguePlayerInteractionHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/enemies/WalkingTurret$WalkingTurretInteractionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/enemies/WalkingTurret$WalkingTurretInteractionHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/enemies/WalkingTurret.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/enemies/WalkingTurret.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/Level0.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/Level0.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/Level0BossRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/Level0BossRoom.class" afterDir="false" />
     </list>
     <list id="46e080cd-0ade-491d-a49c-8d64ba73cca7" name="Changes by User" comment="" />
@@ -43,7 +46,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "ToolWindowRun.ShowToolbar": "false",
-    "last_opened_file_path": "C:/Users/fkata/IdeaProjects/test project",
+    "last_opened_file_path": "C:/Users/fkata/Documents/GitHub/EPFL_MP-2",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -258,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671112891501</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="test">
+      <created>1671280274421</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1671280274421</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -277,7 +287,6 @@
     <MESSAGE value="finished 2.1.3" />
     <MESSAGE value="02/12/2022 13:39" />
     <MESSAGE value="06/12/2022 12:59" />
-    <MESSAGE value="test" />
     <MESSAGE value="08/12/22 05:33" />
     <MESSAGE value="15:59" />
     <MESSAGE value="testing this fucking git" />
@@ -290,7 +299,8 @@
     <MESSAGE value="Part 4 is done" />
     <MESSAGE value="Part 4 is done. Player death is buggy if happens during a move" />
     <MESSAGE value="death while moving bugs repaired. Game is playable" />
-    <option name="LAST_COMMIT_MESSAGE" value="death while moving bugs repaired. Game is playable" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

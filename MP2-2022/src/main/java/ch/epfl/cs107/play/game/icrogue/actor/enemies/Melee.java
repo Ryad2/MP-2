@@ -1,5 +1,6 @@
 package ch.epfl.cs107.play.game.icrogue.actor.enemies;
 
+
 import ch.epfl.cs107.play.game.areagame.Area;
 import ch.epfl.cs107.play.game.areagame.actor.Interactable;
 import ch.epfl.cs107.play.game.areagame.actor.Interactor;
@@ -7,7 +8,7 @@ import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.game.areagame.actor.Sprite;
 import ch.epfl.cs107.play.game.areagame.handler.AreaInteractionVisitor;
 import ch.epfl.cs107.play.game.icrogue.ICRogueBehavior;
-import ch.epfl.cs107.play.game.icrogue.actor.items.Item;
+import ch.epfl.cs107.play.game.icrogue.actor.ICRoguePlayer;
 import ch.epfl.cs107.play.game.icrogue.handler.ICRogueInteractionHandler;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
 import ch.epfl.cs107.play.math.RegionOfInterest;
@@ -16,30 +17,26 @@ import ch.epfl.cs107.play.math.Vector;
 import java.util.Collections;
 import java.util.List;
 
-public class WalkingTurret extends Turret implements Interactor { // for now, it extends a non-abstract class. Will fix it later
+public class Melee extends MovingEnemy implements Interactor{
 
     private static final int MOVE_DURATION = 8;
-    private final WalkingTurretInteractionHandler handler;
+    private static final int DAMAGE = 2;
+    private final MeleeInteractionHandler handler;
 
     private updateInterface updateMethod;
 
-    public WalkingTurret(Area owner, Orientation orientation, DiscreteCoordinates coordinates,
-                         Orientation[] targetOrientations) {
-        super(owner, orientation, coordinates, targetOrientations);
+    public Melee(Area owner, Orientation orientation, DiscreteCoordinates coordinates) {
+        super(owner, orientation, coordinates);
 
-        handler = new WalkingTurretInteractionHandler();
+        handler = new MeleeInteractionHandler();
 
         updateMethod = this::normalUpdate;
     }
 
     @Override
     protected Sprite getSprite() {
-        return new Sprite("icrogue/feather_npc", 1f, 1.5f, this,
+        return new Sprite("icrogue/zombie_npc", 1f, 1.5f, this,
                 new RegionOfInterest(0, 0, 16, 32), new Vector(0f, 0f));
-    }
-
-    public void redirect(Orientation orientation){
-        launch(orientation);
     }
 
     @Override
@@ -50,7 +47,7 @@ public class WalkingTurret extends Turret implements Interactor { // for now, it
     private void normalUpdate(float deltaTime){
         super.update(deltaTime);
 
-        move(MOVE_DURATION);
+        //move(MOVE_DURATION);
     }
 
     private void deathUpdate(float deltaTime){
@@ -107,7 +104,7 @@ public class WalkingTurret extends Turret implements Interactor { // for now, it
         other.acceptInteraction(handler, isCellInteraction);
     }
 
-    private class WalkingTurretInteractionHandler implements ICRogueInteractionHandler {
+    private class MeleeInteractionHandler implements ICRogueInteractionHandler {
 
         @Override
         public void interactWith(ICRogueBehavior.ICRogueCell cell, boolean isCellInteraction) {
@@ -119,11 +116,11 @@ public class WalkingTurret extends Turret implements Interactor { // for now, it
             }
         }
 
-
         @Override
-        public void interactWith(Turret turret, boolean isCellInteraction) {
-            if (turret.isViewInteractable() && !isCellInteraction && !turret.equals(WalkingTurret.this)){
-                orientate(getOrientation().opposite());
+        public void interactWith(ICRoguePlayer player, boolean isCellInteraction){
+            if (isCellInteraction && player.isCellInteractable()){
+                player.takeDamage(DAMAGE);
+                die();
             }
         }
     }

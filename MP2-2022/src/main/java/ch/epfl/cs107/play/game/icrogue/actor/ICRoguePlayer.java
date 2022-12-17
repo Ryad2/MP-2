@@ -77,9 +77,15 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
     public Connector getCrossingConnector() {
         return crossingConnector;
     }
+
     public void resetCrossing(){
         crossingConnector = null;
         isCrossing = false;
+    }
+
+    public DiscreteCoordinates getCoordinates(){                        // uses not yet realized. Might need to get
+        Vector position = getPosition();                                // rid of this
+        return new DiscreteCoordinates((int)position.x, (int)position.y);
     }
 
     public void createSpriteMAP() {
@@ -112,6 +118,8 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
         moveIfPressed(Orientation.UP, keyboard.get(Keyboard.UP));
         moveIfPressed(Orientation.RIGHT, keyboard.get(Keyboard.RIGHT));
         moveIfPressed(Orientation.DOWN, keyboard.get(Keyboard.DOWN));
+
+        reorientate(keyboard);
 
         launchFireBallIfPressed(keyboard.get(Keyboard.X));
 
@@ -164,6 +172,22 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
             }
         }
     }
+
+    private void reorientate(Keyboard keyboard){
+        if (keyboard.get(Keyboard.W).isDown()){
+            orientate(Orientation.UP);
+        }
+        else if (keyboard.get(Keyboard.A).isDown()){
+            orientate(Orientation.LEFT);
+        }
+        else if (keyboard.get(Keyboard.S).isDown()){
+            orientate(Orientation.DOWN);
+        }
+        else if (keyboard.get(Keyboard.D).isDown()){
+            orientate(Orientation.RIGHT);
+        }
+    }
+
     private void launchFireBallIfPressed(Button button){
         if (button.isDown() && collectedStaff && fireBallCooldownValue == 0){
             launchFireBall = true;
@@ -176,8 +200,8 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
         new FireBall(getOwnerArea(), getOrientation(), getCurrentMainCellCoordinates());
     }
 
-    public void takeDamage(){
-        hitPoints--;
+    public void takeDamage(int damage){
+        hitPoints -= damage;
         System.out.println("ouch " + hitPoints + " hit points left");
 
         if (hitPoints == 0){
@@ -213,7 +237,7 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
     }
     @Override
     public boolean wantsViewInteraction() {
-        return keyIsPressed(Keyboard.W);
+        return keyIsPressed(Keyboard.C);
     }
     @Override
     public void interactWith(Interactable other, boolean isCellInteraction) {

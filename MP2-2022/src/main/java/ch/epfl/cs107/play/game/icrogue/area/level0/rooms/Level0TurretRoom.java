@@ -15,5 +15,8 @@ public class Level0TurretRoom extends Level0EnemyRoom {
 
         addEnemy(new Turret(this, Orientation.DOWN, new DiscreteCoordinates(8, 1),
                 new Orientation[] {Orientation.LEFT, Orientation.UP}));
+
+        addEnemy(new WalkingTurret(this, Orientation.LEFT, new DiscreteCoordinates(8, 8),
+                new Orientation[] {}));
     }
 }

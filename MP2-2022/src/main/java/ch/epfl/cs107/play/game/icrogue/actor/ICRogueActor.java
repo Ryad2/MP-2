@@ -29,7 +29,7 @@ public abstract class ICRogueActor extends MovableAreaEntity{
 
 
     /**
-     * Leave an area by unregister this player
+     * Leave an area by unregistering this player
      */
     public void leaveArea(){
         getOwnerArea().unregisterActor(this);
