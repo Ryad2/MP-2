@@ -102,4 +102,6 @@ public class Level0 extends Level {
 
         generateFinalMap();
     }
+
+    // comment to test
 }
