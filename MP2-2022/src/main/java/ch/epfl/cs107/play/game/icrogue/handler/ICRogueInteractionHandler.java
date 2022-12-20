@@ -7,9 +7,7 @@ import ch.epfl.cs107.play.game.icrogue.actor.ICRoguePlayer;
 import ch.epfl.cs107.play.game.icrogue.actor.enemies.Turret;
 import ch.epfl.cs107.play.game.icrogue.actor.enemies.WalkingTurret;
 import ch.epfl.cs107.play.game.icrogue.actor.enemies.Melee;
-import ch.epfl.cs107.play.game.icrogue.actor.items.Item;
-import ch.epfl.cs107.play.game.icrogue.actor.items.Key;
-import ch.epfl.cs107.play.game.icrogue.actor.items.Staff;
+import ch.epfl.cs107.play.game.icrogue.actor.items.*;
 
 public interface ICRogueInteractionHandler extends AreaInteractionVisitor {
     default void interactWith(ICRogueBehavior.ICRogueCell cell, boolean isCellInteraction) {
@@ -18,7 +16,7 @@ public interface ICRogueInteractionHandler extends AreaInteractionVisitor {
     default void interactWith(ICRoguePlayer player, boolean isCellInteraction) {
 
     }
-    default void interactWith(Item item, boolean isCellInteraction) {
+    default void interactWith(Cherry cherry, boolean isCellInteraction) {
 
     }
     default void interactWith(Staff staff, boolean isCellInteraction) {
@@ -37,6 +35,9 @@ public interface ICRogueInteractionHandler extends AreaInteractionVisitor {
 
     }
     default void interactWith(Melee melee, boolean isCellInteraction){
+
+    }
+    default void interactWith(Orb orb, boolean isCellInteraction){
 
     }
 }

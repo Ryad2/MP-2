@@ -10,11 +10,11 @@ public class Level0KeyRoom extends Level0Room {
     public Level0KeyRoom(DiscreteCoordinates roomCoordinates, int keyID){
         super(roomCoordinates);
         key = new Key(this, Orientation.DOWN, ITEM_COORDINATES, keyID);
+        addEntity(key);
     }
 
     @Override
     protected void createArea() {
-        registerActor(key);
         super.createArea();
     }
 }

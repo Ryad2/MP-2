@@ -1,18 +1,13 @@
 package ch.epfl.cs107.play.game.icrogue.actor;
 
-import ch.epfl.cs107.play.game.actor.TextGraphics;
 import ch.epfl.cs107.play.game.areagame.Area;
 import ch.epfl.cs107.play.game.areagame.actor.MovableAreaEntity;
 import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.game.areagame.actor.Sprite;
 import ch.epfl.cs107.play.game.areagame.handler.AreaInteractionVisitor;
-import ch.epfl.cs107.play.game.icrogue.handler.ICRogueInteractionHandler;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
-import ch.epfl.cs107.play.math.Vector;
 import ch.epfl.cs107.play.window.Canvas;
-import ch.epfl.cs107.play.window.Keyboard;
 
-import java.awt.*;
 import java.util.Collections;
 import java.util.List;
 
@@ -77,6 +72,17 @@ public abstract class ICRogueActor extends MovableAreaEntity{
 
     @Override
     public void acceptInteraction(AreaInteractionVisitor v, boolean isCellInteraction) {
+    }
+
+
+    // this is a delegate. We were not taught to do this
+    @FunctionalInterface
+    public interface updateInterface{
+        void update(float deltaTime);
+    }
+    @FunctionalInterface
+    public interface drawInterface{
+        void draw(Canvas canvas);
     }
 }
 

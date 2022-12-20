@@ -7,7 +7,6 @@ import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.game.areagame.actor.Sprite;
 import ch.epfl.cs107.play.game.areagame.handler.AreaInteractionVisitor;
 import ch.epfl.cs107.play.game.icrogue.ICRogueBehavior;
-import ch.epfl.cs107.play.game.icrogue.actor.items.Item;
 import ch.epfl.cs107.play.game.icrogue.handler.ICRogueInteractionHandler;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
 import ch.epfl.cs107.play.math.RegionOfInterest;
@@ -18,7 +17,7 @@ import java.util.List;
 
 public class WalkingTurret extends Turret implements Interactor { // for now, it extends a non-abstract class. Will fix it later
 
-    private static final int MOVE_DURATION = 8;
+    private static final int MOVE_DURATION = 10;
     private final WalkingTurretInteractionHandler handler;
 
     private updateInterface updateMethod;
@@ -47,13 +46,14 @@ public class WalkingTurret extends Turret implements Interactor { // for now, it
         updateMethod = this::deathUpdate;
     }
 
-    private void normalUpdate(float deltaTime){
+
+    protected void normalUpdate(float deltaTime){
         super.update(deltaTime);
 
         move(MOVE_DURATION);
     }
 
-    private void deathUpdate(float deltaTime){
+    protected void deathUpdate(float deltaTime){
         if (!isDisplacementOccurs()){
             super.die();
         }

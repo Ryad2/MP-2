@@ -24,14 +24,6 @@ public class Turret extends Enemy {
         return isDead;
     }
 
-    public void die(){
-        if (!isDead){
-            isDead = true;
-            Level0EnemyRoom room = (Level0EnemyRoom)getOwnerArea();
-            room.removeEnemy(this);
-        }
-    }
-
     public Turret(Area owner, Orientation orientation, DiscreteCoordinates coordinates, Orientation[] targetOrientations){
         super(owner, orientation, coordinates);
         this.targetOrientations = targetOrientations.clone();

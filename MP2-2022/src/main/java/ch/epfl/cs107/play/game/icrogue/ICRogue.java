@@ -8,12 +8,15 @@ import ch.epfl.cs107.play.game.icrogue.area.Level;
 import ch.epfl.cs107.play.game.icrogue.area.level0.Level0;
 import ch.epfl.cs107.play.io.FileSystem;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
+import ch.epfl.cs107.play.math.Vector;
 import ch.epfl.cs107.play.window.Keyboard;
 import ch.epfl.cs107.play.window.Window;
 
 public class ICRogue extends AreaGame {
     private ICRogueRoom currentRoom;
     private static Level level0;            // is unknown if this should be static, but have found no other way
+    private static ICRoguePlayer player;
+    private static Vector playerPosition;
 
 
     public void setCurrentRoom(String roomKey){
@@ -30,10 +33,9 @@ public class ICRogue extends AreaGame {
     }
 
 
-
     public final static float CAMERA_SCALE_FACTOR = 11.f;
 
-    private ICRoguePlayer player;
+
     private final String[] areas = {"icrogue/level000"};
 
     private int areaIndex;
@@ -67,6 +69,7 @@ public class ICRogue extends AreaGame {
             switchRoom();
         }
 
+        playerPosition = player.getPlayerPosition();
 
          super.update(deltaTime);
     }
@@ -103,5 +106,9 @@ public class ICRogue extends AreaGame {
 
     public static void beatBossRoom(String bossRoom){
         level0.beatRoom(bossRoom);
+    }
+
+    public static Vector getPlayerPosition(){
+        return playerPosition;
     }
 }

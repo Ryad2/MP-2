@@ -1,33 +1,15 @@
 package ch.epfl.cs107.play.game.icrogue.area.level0.rooms;
 
+import ch.epfl.cs107.play.game.areagame.actor.AreaEntity;
 import ch.epfl.cs107.play.game.icrogue.ICRogue;
 import ch.epfl.cs107.play.game.icrogue.actor.Connector;
 import ch.epfl.cs107.play.game.icrogue.actor.ICRogueActor;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Level0EnemyRoom extends Level0Room {
-
-    private List<ICRogueActor> enemies;
 
     public Level0EnemyRoom(DiscreteCoordinates roomCoordinates) {
         super(roomCoordinates);
-
-        enemies = new ArrayList<>();
-    }
-
-    protected void addEnemy(ICRogueActor enemy){
-        enemies.add(enemy);
-    }
-
-    public void removeEnemy(ICRogueActor enemy){
-        enemies.remove(enemy);
-        enemy.leaveArea();
-        if (enemies.size() == 0){
-            beatRoom();
-        }
     }
 
     protected void beatRoom(){
@@ -41,10 +23,6 @@ public class Level0EnemyRoom extends Level0Room {
     @Override
     protected void createArea() {
         super.createArea();
-
-        for (ICRogueActor enemy : enemies) {
-            registerActor(enemy);
-        }
     }
 
     @Override

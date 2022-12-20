@@ -6,11 +6,10 @@ import ch.epfl.cs107.play.game.areagame.actor.Interactor;
 import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.game.areagame.actor.Sprite;
 import ch.epfl.cs107.play.game.areagame.handler.AreaInteractionVisitor;
+import ch.epfl.cs107.play.game.icrogue.actor.enemies.Melee;
 import ch.epfl.cs107.play.game.icrogue.actor.enemies.Turret;
 import ch.epfl.cs107.play.game.icrogue.actor.enemies.WalkingTurret;
-import ch.epfl.cs107.play.game.icrogue.actor.items.Item;
-import ch.epfl.cs107.play.game.icrogue.actor.items.Key;
-import ch.epfl.cs107.play.game.icrogue.actor.items.Staff;
+import ch.epfl.cs107.play.game.icrogue.actor.items.*;
 import ch.epfl.cs107.play.game.icrogue.actor.projectiles.FireBall;
 import ch.epfl.cs107.play.game.icrogue.handler.ICRogueInteractionHandler;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
@@ -38,6 +37,7 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
     private int fireBallCooldownValue;
     private final int fireBallCooldown = 10;     // 10 is a placeholder value. It needs to be changed later
     private int hitPoints = 3;
+    private int orbs = 0;
 
 
     private boolean isCrossing;
@@ -48,6 +48,8 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
 
 
     Map<Orientation, Sprite> sprites = new HashMap<>();
+
+    Map<Integer, Map<Orientation, Sprite>> allSprites = new HashMap<>();
 
     public ICRoguePlayer(Area owner, Orientation orientation, DiscreteCoordinates coordinates) {
 
@@ -70,6 +72,10 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
         return sprites.get(orientation);
     }
 
+    public Sprite getSprites(Integer number, Orientation orientation){
+        return allSprites.get(number).get(orientation);
+    }
+
     public boolean getIsCrossing(){
         return isCrossing;
     }
@@ -83,12 +89,12 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
         isCrossing = false;
     }
 
-    public DiscreteCoordinates getCoordinates(){                        // uses not yet realized. Might need to get
-        Vector position = getPosition();                                // rid of this
-        return new DiscreteCoordinates((int)position.x, (int)position.y);
+    public Vector getPlayerPosition(){
+        Vector position = getPosition();
+        return new Vector(position.x, position.y);
     }
 
-    public void createSpriteMAP() {
+    private void createSpriteMAP() {
 
         Sprite down = new Sprite("zelda/player", .75f, 1.5f, this,
                 new RegionOfInterest(0, 0, 16, 32), new Vector(.15f, -.15f));
@@ -103,6 +109,17 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
         sprites.put(Orientation.DOWN, down);
         sprites.put(Orientation.RIGHT, right);
         sprites.put(Orientation.LEFT, left);
+
+        allSprites.put(0, sprites);
+    }
+
+    private void createStaffMap(){
+        Map<Orientation, Sprite> staffSprites = new HashMap<>();
+
+        staffSprites.put(Orientation.UP, new Sprite("zelda/player.staff_water", .75f, 1.5f, this,
+                new RegionOfInterest(0, 0, 16, 32), new Vector(.15f, -.15f)));
+
+        allSprites.put(1, staffSprites);
     }
 
     public void resetPlayer(){
@@ -124,6 +141,7 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
         launchFireBallIfPressed(keyboard.get(Keyboard.X));
 
         sprite = getSprites(getOrientation());
+        //sprite = getSprite(0, getOrientation())
 
         super.update(deltaTime);
 
@@ -154,12 +172,6 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
     public void update(float deltaTime) {
 
         updateMethod.update(deltaTime);
-    }
-
-    // this is a delegate. We were not taught to do this
-    @FunctionalInterface
-    private interface updateInterface {
-        void update(float deltaTime);
     }
 
     // Keyboard interactions
@@ -196,6 +208,10 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
 
     // player actions
 
+    private void collectStaff(){
+
+    }
+
     private void launchFireBall(){
         new FireBall(getOwnerArea(), getOrientation(), getCurrentMainCellCoordinates());
     }
@@ -204,10 +220,22 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
         hitPoints -= damage;
         System.out.println("ouch " + hitPoints + " hit points left");
 
-        if (hitPoints == 0){
+        if (hitPoints <= 0){
             updateMethod = this::deathUpdate;
             System.out.println("Game Over");
         }
+    }
+
+    private void heal(int heal){
+        hitPoints += heal;
+
+        System.out.println("heal " + hitPoints + " hit points left");
+    }
+
+    private void collectOrb(){
+        orbs++;
+
+        System.out.println("collected orb. You have now " + orbs);
     }
 
     public void moveToNewRoom(){
@@ -263,22 +291,26 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
 
     private class ICRoguePlayerInteractionHandler implements ICRogueInteractionHandler{
         @Override
-        public void interactWith(Item item, boolean isCellInteraction){
+        public void interactWith(Cherry cherry, boolean isCellInteraction){
 
-            if (isCellInteraction && item.isCellInteractable()){
-                item.collect();
-            }
-            else if (item.isViewInteractable()){
-                item.collect();
+            if (isCellInteraction && cherry.isCellInteractable()){
+                cherry.collect();
+                heal(cherry.getHealValue());
             }
         }
 
         @Override
         public void interactWith(Staff item, boolean isCellInteraction){
-
             if (!isCellInteraction && item.isViewInteractable()){
                 item.collect();
-                collectedStaff = true;
+                collectStaff();
+            }
+        }
+
+        @Override
+        public void interactWith(Orb orb, boolean isCellInteraction) {
+            if (isCellInteraction && orb.isCellInteractable()){
+                orb.collect();
             }
         }
 
@@ -324,7 +356,6 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
     public void acceptInteraction(AreaInteractionVisitor v, boolean isCellInteraction) {
         ((ICRogueInteractionHandler) v).interactWith(this , isCellInteraction);
     }
-
 }
 
 

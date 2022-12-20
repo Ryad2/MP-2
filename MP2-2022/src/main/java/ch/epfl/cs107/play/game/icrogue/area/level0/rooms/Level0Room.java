@@ -1,7 +1,11 @@
 package ch.epfl.cs107.play.game.icrogue.area.level0.rooms;
 
+import ch.epfl.cs107.play.game.actor.Entity;
+import ch.epfl.cs107.play.game.areagame.actor.AreaEntity;
 import ch.epfl.cs107.play.game.areagame.actor.Background;
 import ch.epfl.cs107.play.game.areagame.actor.Orientation;
+import ch.epfl.cs107.play.game.icrogue.ICRogue;
+import ch.epfl.cs107.play.game.icrogue.actor.Connector;
 import ch.epfl.cs107.play.game.icrogue.actor.items.Cherry;
 import ch.epfl.cs107.play.game.icrogue.actor.items.Key;
 import ch.epfl.cs107.play.game.icrogue.actor.items.Staff;
@@ -13,9 +17,9 @@ import java.util.*;
 
 public class Level0Room extends ICRogueRoom {
 
-    protected final DiscreteCoordinates ITEM_COORDINATES = new DiscreteCoordinates(5, 5);
+    private List<AreaEntity> entities;
 
-    // =====    WARNING    ==== end of page 6 says something about background in this file
+    protected final DiscreteCoordinates ITEM_COORDINATES = new DiscreteCoordinates(5, 5);
 
     //WE CAN ALSO USE THE getTitle() OF ICROGUE ROOM
     public String getTitle() { return "icrogue/level0" + getCoordinates().x + getCoordinates().y;}
@@ -23,20 +27,51 @@ public class Level0Room extends ICRogueRoom {
     public Level0Room(DiscreteCoordinates roomCoordinates){
         super(Level0Connectors.getAllConnectorsPosition(), Level0Connectors.getAllConnectorsOrientation(),
                 "icrogue/level0Room", roomCoordinates);
+
+        entities = new ArrayList<>();
     }
 
+    public void addEntity(AreaEntity entity){
+        entities.add(entity);
+    }
+
+    public void createEntity(AreaEntity entity){
+        entities.add(entity);
+        registerActor(entity);
+    }
+
+    public void removeEntity(AreaEntity entity){
+        entities.remove(entity);
+        unregisterActor(entity);
+        if (entities.isEmpty()){
+            beatRoom();
+        }
+    }
+
+    protected void beatRoom(){
+        for (Connector connector : connectors){
+            connector.open();
+        }
+        System.out.println("Room is beaten");
+        ICRogue.beatBossRoom(getTitle());
+    }
 
     @Override
     public DiscreteCoordinates getPlayerSpawnPosition() {
         return new DiscreteCoordinates(5,15);
     }
 
-    protected void
-
-    createArea() {
+    protected void createArea() {
         super.createArea();
-
         registerActor(new Background(this, getBehaviorName()));
+
+        /*if (entities.isEmpty()){
+            beatRoom();
+        }*/
+
+        for (AreaEntity entity : entities){
+            registerActor(entity);
+        }
     }
 
 

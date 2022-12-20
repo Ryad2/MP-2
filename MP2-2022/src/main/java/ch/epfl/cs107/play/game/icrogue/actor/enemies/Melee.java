@@ -2,11 +2,9 @@ package ch.epfl.cs107.play.game.icrogue.actor.enemies;
 
 
 import ch.epfl.cs107.play.game.areagame.Area;
-import ch.epfl.cs107.play.game.areagame.actor.Interactable;
-import ch.epfl.cs107.play.game.areagame.actor.Interactor;
-import ch.epfl.cs107.play.game.areagame.actor.Orientation;
-import ch.epfl.cs107.play.game.areagame.actor.Sprite;
+import ch.epfl.cs107.play.game.areagame.actor.*;
 import ch.epfl.cs107.play.game.areagame.handler.AreaInteractionVisitor;
+import ch.epfl.cs107.play.game.icrogue.ICRogue;
 import ch.epfl.cs107.play.game.icrogue.ICRogueBehavior;
 import ch.epfl.cs107.play.game.icrogue.actor.ICRoguePlayer;
 import ch.epfl.cs107.play.game.icrogue.handler.ICRogueInteractionHandler;
@@ -19,18 +17,23 @@ import java.util.List;
 
 public class Melee extends MovingEnemy implements Interactor{
 
-    private static final int MOVE_DURATION = 8;
+    private static final int MOVE_DURATION = 10;
+    private int wait;
     private static final int DAMAGE = 2;
     private final MeleeInteractionHandler handler;
 
     private updateInterface updateMethod;
 
+
+    private boolean wantsCellInteraction = true;
+
     public Melee(Area owner, Orientation orientation, DiscreteCoordinates coordinates) {
+
         super(owner, orientation, coordinates);
 
         handler = new MeleeInteractionHandler();
 
-        updateMethod = this::normalUpdate;
+        updateMethod = this::initialOrientate;
     }
 
     @Override
@@ -42,41 +45,59 @@ public class Melee extends MovingEnemy implements Interactor{
     @Override
     public void die() {
         updateMethod = this::deathUpdate;
+        setDrawMethod(super::deathDraw);
+        wantsCellInteraction = false;
     }
 
-    private void normalUpdate(float deltaTime){
-        super.update(deltaTime);
-
-        //move(MOVE_DURATION);
-    }
-
-    private void deathUpdate(float deltaTime){
-        if (!isDisplacementOccurs()){
-            super.die();
-        }
-
-        super.update(deltaTime);
-    }
+    // update
 
     @Override
     public void update(float deltaTime) {
         updateMethod.update(deltaTime);
     }
 
-    // this is a delegate. We were not taught to do this
-    @FunctionalInterface
-    private interface updateInterface{
-        void update(float deltaTime);
+    @Override
+    protected void normalUpdate(float deltaTime){
+        super.update(deltaTime);
+
+        move(MOVE_DURATION);
+        updateMethod = this::moveUpdate;
     }
+
+    /*protected void deathUpdate(float deltaTime){
+        if (!isDisplacementOccurs() && deathAnimation.isCompleted()){
+            super.die();                    // goes through update in a wonky way
+        }
+
+        deathAnimation.update(deltaTime);
+        super.update(deltaTime);
+    }*/
+
+    private void initialOrientate(float deltaTime) {
+        orientate(calculateOrientation(getPosition(), getOrientation()));
+        updateMethod = this::normalUpdate;
+
+        super.update(deltaTime);
+    }
+
+    @Override
+    protected void moveUpdate(float deltaTime){
+        if (isTargetReached() && !isDisplacementOccurs()){
+            orientate(calculateOrientation(getPosition(), getOrientation()));
+            updateMethod = this::normalUpdate;
+        }
+        super.update(deltaTime);
+    }
+
+    // =====                =====
+    // =====  Interactable  =====
+    // =====                =====
+
 
     @Override
     public void acceptInteraction(AreaInteractionVisitor v, boolean isCellInteraction) {
         ((ICRogueInteractionHandler) v).interactWith(this , isCellInteraction);
     }
-
-    // =====              =====
-    // =====  Interactor  =====
-    // =====              =====
 
     @Override
     public boolean takeCellSpace(){
@@ -86,6 +107,11 @@ public class Melee extends MovingEnemy implements Interactor{
     public List<DiscreteCoordinates> getCurrentCells() {
         return super.getCurrentCells();
     }
+
+    // =====              =====
+    // =====  Interactor  =====
+    // =====              =====
+
     @Override
     public List<DiscreteCoordinates> getFieldOfViewCells() {
         return Collections.singletonList(getCurrentMainCellCoordinates().jump(getOrientation().toVector()));
@@ -93,7 +119,7 @@ public class Melee extends MovingEnemy implements Interactor{
 
     @Override
     public boolean wantsCellInteraction() {
-        return false;
+        return wantsCellInteraction;
     }
     @Override
     public boolean wantsViewInteraction() {
@@ -123,5 +149,26 @@ public class Melee extends MovingEnemy implements Interactor{
                 die();
             }
         }
+    }
+
+
+
+    public static  Orientation calculateOrientation(Vector enemyPosition, Orientation enemyOrientation){
+        Vector playerPosition = ICRogue.getPlayerPosition();
+        Vector difference = playerPosition.sub(enemyPosition);
+
+        Orientation orientationToPlayer;
+
+        if (Math.abs(difference.x) > Math.abs(difference.y)){
+            orientationToPlayer = Orientation.fromVector(new Vector(difference.x, 0));
+        }
+        else{
+            orientationToPlayer = Orientation.fromVector(new Vector(0, difference.y));
+        }
+
+        if (orientationToPlayer != null && !orientationToPlayer.equals(enemyOrientation)){
+            return orientationToPlayer;
+        }
+        return enemyOrientation;
     }
 }

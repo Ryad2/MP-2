@@ -4,12 +4,9 @@ import ch.epfl.cs107.play.game.areagame.Area;
 import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
 
-import java.util.Collections;
-import java.util.List;
-
-public class MovingEnemy extends Enemy {
+public abstract class MovingEnemy extends Enemy {
     private final static int MOVE_DURATION = 8;
-    protected updateInterface updateMethod;
+    private updateInterface updateMethod;
 
 
     public MovingEnemy(Area owner, Orientation orientation, DiscreteCoordinates coordinates) {
@@ -18,33 +15,28 @@ public class MovingEnemy extends Enemy {
         updateMethod = this::normalUpdate;
     }
 
-    @Override
-    public void die() {
-        updateMethod = this::deathUpdate;
-    }
+    // update
 
-    private void normalUpdate(float deltaTime){
+    protected void normalUpdate(float deltaTime){
         super.update(deltaTime);
 
         move(MOVE_DURATION);
+        updateMethod = this::moveUpdate;
     }
 
-    private void deathUpdate(float deltaTime){
-        if (!isDisplacementOccurs()){
+    protected void deathUpdate(float deltaTime){
+        if (!isDisplacementOccurs() && deathAnimation.isCompleted()){
             super.die();
         }
 
+        deathAnimation.update(deltaTime);
         super.update(deltaTime);
     }
 
-    @Override
-    public void update(float deltaTime) {
-        updateMethod.update(deltaTime);
-    }
-
-    // this is a delegate. We were not taught to do this
-    @FunctionalInterface
-    private interface updateInterface{
-        void update(float deltaTime);
+    protected void moveUpdate(float deltaTime){
+        if (isTargetReached() && !isDisplacementOccurs()){
+            updateMethod = this::normalUpdate;
+        }
+        super.update(deltaTime);
     }
 }

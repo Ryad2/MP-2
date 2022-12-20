@@ -1,6 +1,7 @@
 package ch.epfl.cs107.play.game.icrogue.actor.items;
 
 import ch.epfl.cs107.play.game.areagame.Area;
+import ch.epfl.cs107.play.game.areagame.actor.Animation;
 import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.game.areagame.actor.Sprite;
 import ch.epfl.cs107.play.game.areagame.handler.AreaInteractionVisitor;
@@ -14,11 +15,15 @@ import java.util.List;
 
 public class Staff extends Item{
 
+    Animation staffAnimation;
+
     public Staff(Area area, Orientation orientation, DiscreteCoordinates position){
         super(area, orientation, position);
 
         this.sprite=new Sprite("zelda/staff_water.icon", .5f, .5f, this);
 
+        staffAnimation = new Animation(8, Sprite.extractSprites("zelda/staff",
+                8, 1f, 1f, this, 32, 32), true);
     }
 
     public List<DiscreteCoordinates> getCurrentCells() {
@@ -39,8 +44,14 @@ public class Staff extends Item{
         return true;
     }
 
-    public void draw(Canvas canvas){
-        sprite.draw(canvas);
+    @Override
+    public void update(float deltaTime) {
+        super.update(deltaTime);
+        staffAnimation.update(deltaTime);
     }
 
+    public void draw(Canvas canvas){
+        //sprite.draw(canvas);
+        staffAnimation.draw(canvas);
+    }
 }

@@ -20,7 +20,7 @@ public abstract class Level {            // not getters are to appear in this cl
         this.startingRoomCoordinates = startingRoomCoordinates;
         map = new ICRogueRoom[mapDimensions.x][mapDimensions.y];
 
-        bossRoomCoordinates = new DiscreteCoordinates(0, 0);
+        bossRoomCoordinates = new DiscreteCoordinates(1, 1);
         generateFixedMap();
 
         setStartingRoomTitle(startingRoomCoordinates);
