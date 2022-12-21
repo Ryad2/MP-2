@@ -9,9 +9,9 @@ import ch.epfl.cs107.play.math.DiscreteCoordinates;
 public class Level0 extends Level {
 
     private final static DiscreteCoordinates DEFAULT_STARTING_ROOM_POSITION = new DiscreteCoordinates(0, 0);
-    private final static DiscreteCoordinates startingRoomPosition = new DiscreteCoordinates(2, 2);
+    private final static DiscreteCoordinates startingRoomPosition = new DiscreteCoordinates(0, 0);
     private final static DiscreteCoordinates DEFAULT_START_POSITION = new DiscreteCoordinates(2, 2);
-    private final static DiscreteCoordinates DEFAULT_LEVEL_SIZE = new DiscreteCoordinates(5, 3);
+    private final static DiscreteCoordinates DEFAULT_LEVEL_SIZE = new DiscreteCoordinates(4, 2);
 
     public Level0(ICRogue game){
         super(DEFAULT_START_POSITION, DEFAULT_LEVEL_SIZE, game, startingRoomPosition);
@@ -138,9 +138,9 @@ public class Level0 extends Level {
 
         //generateMap2();
 
-        //generateFinalMap();
+        generateFinalMap();
 
-        generateTestGame();
+        //generateTestGame();
     }
 
     // comment to test

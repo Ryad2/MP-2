@@ -21,6 +21,9 @@ public class Orb extends Item {
 
         animation = new Animation(4, Sprite.extractSprites("zelda/orb",
                 6, .75f, .75f, this, 32, 32), true);
+
+        /*animation = new Animation(4, Sprite.extractSprites("zelda/orb",
+                6, 192, 128, this, 32, 32), true);*/
     }
 
     public List<DiscreteCoordinates> getCurrentCells() {

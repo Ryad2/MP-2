@@ -22,7 +22,9 @@ public class Arrow extends Projectiles implements Interactor {
     private static final int MOVE_DURATION = 5;
     private final ArrowInteractionHandler handler;
 
-    private Arrow(Area owner, Orientation orientation, DiscreteCoordinates coordinates) {
+    private final boolean isCopy;
+
+    private Arrow(Area owner, Orientation orientation, DiscreteCoordinates coordinates, boolean isCopy) {
         super(owner, orientation, coordinates, DAMAGE, MOVE_DURATION);
 
         setSprite(new Sprite("zelda/arrow", 1f, 1f, this,
@@ -31,10 +33,15 @@ public class Arrow extends Projectiles implements Interactor {
         enterArea(owner, coordinates);
 
         handler = new ArrowInteractionHandler();
+        this.isCopy = isCopy;
     }
 
     public static void createArrow(Area owner, Orientation orientation, DiscreteCoordinates coordinates){
-        new Arrow(owner, orientation, coordinates);
+        createArrow(owner, orientation, coordinates, false);
+    }
+
+    public static void createArrow(Area owner, Orientation orientation, DiscreteCoordinates coordinates, boolean isCopy){
+        new Arrow(owner, orientation, coordinates, isCopy);
     }
 
     @Override
@@ -86,8 +93,10 @@ public class Arrow extends Projectiles implements Interactor {
         @Override
         public void interactWith(WalkingTurret turret, boolean isCellInteraction) {
             if (turret.isCellInteractable() && isCellInteraction){
-                turret.redirect(getOrientation());
-                consume();
+                if (!isCopy){
+                    turret.redirect(getOrientation());
+                    consume();
+                }
             }
         }
     }

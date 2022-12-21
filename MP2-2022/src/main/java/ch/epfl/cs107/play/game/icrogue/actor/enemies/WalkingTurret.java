@@ -42,6 +42,11 @@ public class WalkingTurret extends Turret implements Interactor { // for now, it
     }
 
     @Override
+    protected void launch() {
+        super.launchCopy();
+    }
+
+    @Override
     public void die() {
         updateMethod = this::deathUpdate;
     }

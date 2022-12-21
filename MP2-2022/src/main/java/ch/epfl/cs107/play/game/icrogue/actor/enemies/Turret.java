@@ -58,8 +58,14 @@ public class Turret extends Enemy {
     protected void launch(Orientation removedOrientation){
         for (Orientation orientation : targetOrientations){
             if (!orientation.equals(removedOrientation)){
-                Arrow.createArrow(getOwnerArea(), orientation, getCurrentMainCellCoordinates());
+                Arrow.createArrow(getOwnerArea(), orientation, getCurrentMainCellCoordinates(), true);
             }
+        }
+    }
+
+    protected void launchCopy(){
+        for (Orientation orientation : targetOrientations){
+            Arrow.createArrow(getOwnerArea(), orientation, getCurrentMainCellCoordinates(), true);
         }
     }
 
