@@ -11,20 +11,40 @@ import ch.epfl.cs107.play.math.DiscreteCoordinates;
 import ch.epfl.cs107.play.window.Canvas;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import static java.util.Map.entry;
 
 public class Staff extends Item{
+
+    private String staffType;
 
     Animation staffAnimation;
 
     public Staff(Area area, Orientation orientation, DiscreteCoordinates position){
         super(area, orientation, position);
 
-        this.sprite=new Sprite("zelda/staff_water.icon", .5f, .5f, this);
-
         staffAnimation = new Animation(8, Sprite.extractSprites("zelda/staff",
                 8, 1f, 1f, this, 32, 32), true);
+
+        staffType = "zelda/staff";
     }
+
+    public Staff(Area area, Orientation orientation, DiscreteCoordinates position, String staffType){
+        this(area, orientation, position);
+
+        staffAnimation = new Animation(8, Sprite.extractSprites(staffType,
+                8, 1f, 1f, this, 32, 32), true);
+
+        this.staffType = staffType;
+    }
+
+    public String getStaffType(){
+        return staffType;
+    }
+
 
     public List<DiscreteCoordinates> getCurrentCells() {
         return Collections.singletonList(getCurrentMainCellCoordinates());

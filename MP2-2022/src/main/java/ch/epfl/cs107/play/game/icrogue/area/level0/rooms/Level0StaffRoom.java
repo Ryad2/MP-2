@@ -9,7 +9,7 @@ public class Level0StaffRoom extends Level0Room {
 
     public Level0StaffRoom(DiscreteCoordinates roomCoordinates){
         super(roomCoordinates);
-        staff = new Staff(this, Orientation.DOWN, ITEM_COORDINATES);
+        staff = new Staff(this, Orientation.DOWN, ITEM_COORDINATES, "zelda/staff_flame");
         addEntity(staff);
     }
 

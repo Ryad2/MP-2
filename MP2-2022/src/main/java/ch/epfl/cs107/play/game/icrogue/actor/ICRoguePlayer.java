@@ -1,10 +1,7 @@
 package ch.epfl.cs107.play.game.icrogue.actor;
 
 import ch.epfl.cs107.play.game.areagame.Area;
-import ch.epfl.cs107.play.game.areagame.actor.Interactable;
-import ch.epfl.cs107.play.game.areagame.actor.Interactor;
-import ch.epfl.cs107.play.game.areagame.actor.Orientation;
-import ch.epfl.cs107.play.game.areagame.actor.Sprite;
+import ch.epfl.cs107.play.game.areagame.actor.*;
 import ch.epfl.cs107.play.game.areagame.handler.AreaInteractionVisitor;
 import ch.epfl.cs107.play.game.icrogue.actor.enemies.Melee;
 import ch.epfl.cs107.play.game.icrogue.actor.enemies.Turret;
@@ -48,6 +45,7 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
 
 
     Map<Orientation, Sprite> sprites = new HashMap<>();
+    Map<Orientation, Animation> spriteAnimations = new HashMap<>();
 
     Map<Integer, Map<Orientation, Sprite>> allSprites = new HashMap<>();
 
@@ -140,8 +138,8 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
 
         launchFireBallIfPressed(keyboard.get(Keyboard.X));
 
-        sprite = getSprites(getOrientation());
-        //sprite = getSprite(0, getOrientation())
+        //sprite = getSprites(getOrientation());
+        sprite = getSprites(0, getOrientation());
 
         super.update(deltaTime);
 
@@ -209,7 +207,7 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
     // player actions
 
     private void collectStaff(){
-
+        collectedStaff = true;
     }
 
     private void launchFireBall(){
@@ -274,17 +272,12 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
 
 
 
-
-
     // generalize the usage of this!!!
     // And move on!
 
     private boolean keyIsPressed(int key){
         return getOwnerArea().getKeyboard().get(key).isDown();
     }
-
-
-
 
 
 
