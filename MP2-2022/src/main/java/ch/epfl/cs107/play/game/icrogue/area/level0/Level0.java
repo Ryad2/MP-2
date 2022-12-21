@@ -1,10 +1,16 @@
 package ch.epfl.cs107.play.game.icrogue.area.level0;
 
 import ch.epfl.cs107.play.game.areagame.AreaGame;
+import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.game.icrogue.ICRogue;
+import ch.epfl.cs107.play.game.icrogue.area.ConnectorInRoom;
+import ch.epfl.cs107.play.game.icrogue.area.ICRogueRoom;
 import ch.epfl.cs107.play.game.icrogue.area.Level;
 import ch.epfl.cs107.play.game.icrogue.area.level0.rooms.*;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
+import ch.epfl.cs107.play.math.Vector;
+
+import java.util.List;
 
 public class Level0 extends Level {
 
@@ -15,6 +21,21 @@ public class Level0 extends Level {
 
     public Level0(ICRogue game){
         super(DEFAULT_START_POSITION, DEFAULT_LEVEL_SIZE, game, startingRoomPosition);
+    }
+
+    public enum RoomType {
+        TURRET_ROOM (3), // type and number of roon
+        STAFF_ROOM (1),
+        BOSS_KEY (1),
+        SPAWN (1),
+        NORMAL (1);
+
+        private int number;
+
+        RoomType(int number) {
+
+        }
+//..
     }
 
     // this is given code
@@ -142,6 +163,4 @@ public class Level0 extends Level {
 
         //generateTestGame();
     }
-
-    // comment to test
 }

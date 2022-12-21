@@ -3,35 +3,39 @@ package ch.epfl.cs107.play.game.icrogue.area;
 import ch.epfl.cs107.play.game.areagame.AreaGame;
 import ch.epfl.cs107.play.game.icrogue.ICRogue;
 import ch.epfl.cs107.play.game.icrogue.RandomHelper;
+import ch.epfl.cs107.play.game.icrogue.area.level0.rooms.Level0Room;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
+import ch.epfl.cs107.play.math.Vector;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.IntStream;
 
-public abstract class Level {            // not getters are to appear in this class
+public class Level {            // not getters are to appear in this class
 
-    private final ICRogueRoom[][] map;
-    private final DiscreteCoordinates arrivalCoordinates;
-    private final DiscreteCoordinates bossRoomCoordinates;
-    private final DiscreteCoordinates startingRoomCoordinates;
+    private ICRogueRoom[][] map;
+    private DiscreteCoordinates arrivalCoordinates;
+    private DiscreteCoordinates bossRoomCoordinates;
+    private DiscreteCoordinates startingRoomCoordinates;
     private String startingRoomTitle;
 
-    /*protected Level (boolean randomMap, DiscreteCoordinates startPosition, int[] roomsDistribution, int width, int height){
+    public Level (boolean randomMap, DiscreteCoordinates startPosition, int[] roomsDistribution, int width, int height){
         if (randomMap){
-            generateRandomMap();
+            int roomNumber = IntStream.of(roomsDistribution).sum();
+            map = generateRandomMap(roomNumber, roomsDistribution);
         }
         else{
             generateFixedMap();
         }
-    }*/
+    }
 
 
-    protected Level(DiscreteCoordinates startingPosition, DiscreteCoordinates mapDimensions, ICRogue game,
+    /*protected Level(DiscreteCoordinates startingPosition, DiscreteCoordinates mapDimensions, ICRogue game,
                     DiscreteCoordinates startingRoomCoordinates){
 
-        arrivalCoordinates = startingPosition;                      // probably incorrect. Check the pdf
         this.startingRoomCoordinates = startingRoomCoordinates;
         map = new ICRogueRoom[mapDimensions.x][mapDimensions.y];
 
@@ -40,11 +44,9 @@ public abstract class Level {            // not getters are to appear in this cl
 
         setStartingRoomTitle(startingRoomCoordinates);
 
-        addAreas(game);
-
 
         printMap(generateRandomRoomPlacement(5));
-    }
+    }*/
 
     /**
      * adds the room to the room map
@@ -70,7 +72,7 @@ public abstract class Level {            // not getters are to appear in this cl
     }
 
     /**
-     * add a desitination to the connector in the argument, and lock the connector
+     * add a desitination to the connector in the argument, and closes the connector
      * @param coordinates
      * @param destination
      * @param connector
@@ -97,7 +99,9 @@ public abstract class Level {            // not getters are to appear in this cl
         startingRoomTitle = map[coordinates.x][coordinates.y].getTitle();
     }
 
-    protected abstract void generateFixedMap();
+    protected void generateFixedMap(){                              // IMPLEMENT PLS
+
+    }
 
     // ====         ====
     // ==== helpers ====
@@ -121,24 +125,113 @@ public abstract class Level {            // not getters are to appear in this cl
         }
     }
 
+    protected ICRogueRoom[][] generateRandomMap(int roomNumber, int[] roomsDistribution){
+        MapState[][] roomsPlacement = generateRandomRoomPlacement(roomNumber);
+        
+        Map<Integer, DiscreteCoordinates> placeableRooms = new HashMap<>();
+        Map<Integer, DiscreteCoordinates> placedRooms = new HashMap<>();
+        int room = roomNumber;
+
+        for (int i = 0; i < roomsPlacement.length; i++){
+            for (int j = 0; j < roomsPlacement.length; j++){
+                if ((roomsPlacement[i][j].equals(MapState.PLACED) || roomsPlacement[i][j].equals(MapState.EXPLORED))
+                        && !roomsPlacement[i][j].equals(MapState.BOSS_ROOM)) {
+                    placeableRooms.put(room, new DiscreteCoordinates(i, j));
+                    room++;
+                }
+            }
+        }
+
+        for (int roomTypeNumber : roomsDistribution){
+            List<Integer> keys = RandomHelper.chooseKInList(roomTypeNumber, placeableRooms.keySet().stream().toList());
+
+            for (Integer key : keys){
+                DiscreteCoordinates roomCoordinates = placeableRooms.get(key);
+
+                Level0Room newRoom = new Level0Room(roomCoordinates);
+                setRoom(roomCoordinates, newRoom);
+
+                placedRooms.put(key, placeableRooms.get(key));               // bad
+                placeableRooms.remove(key);
+                roomsPlacement[roomCoordinates.x][roomCoordinates.y] = MapState.CREATED;
+            }
+        }
+
+
+        for (DiscreteCoordinates placedRoom : placedRooms.values()){
+
+
+
+            setUpConnector(roomsPlacement, map[placedRoom.x][placedRoom.y]);
+        }
+
+
+
+        return null;
+    }
+
+    protected void setUpConnector(MapState[][] roomsPlacement, ICRogueRoom room){
+
+        DiscreteCoordinates roomCoordinates = room.getCoordinates();
+        List<DiscreteCoordinates> neighbours = roomCoordinates.getNeighbours();
+
+        List<ConnectorInRoom> connectors = new ArrayList<>();
+
+        for (DiscreteCoordinates neighbour : neighbours){
+
+            if (roomsPlacement[neighbour.x][neighbour.y] != MapState.NULL){
+                Level0Room.Level0Connectors connector = chooseConnector(roomCoordinates, neighbour);
+
+                DiscreteCoordinates destination = roomCoordinates.jump(connector.getOrientation().toVector());
+                setRoomConnector(roomCoordinates, map[neighbour.x][neighbour.y].getTitle(), connector);
+
+                connectors.add(connector);
+            }
+        }
+
+        if (roomCoordinates.equals(bossRoomCoordinates)){
+            for (ConnectorInRoom connector : connectors){
+                lockRoomConnector(roomCoordinates, connector, 2);       // replace the keyID
+            }
+        }
+    }
+
+    private Level0Room.Level0Connectors chooseConnector(DiscreteCoordinates roomCoordinates, DiscreteCoordinates arrivalCoordinates){
+        Vector direction = arrivalCoordinates.toVector().sub(roomCoordinates.toVector());
+
+        if (direction.equals(new Vector(1, 0))) {
+            return Level0Room.Level0Connectors.E;
+        }
+        if (direction.equals(new Vector(0, 1))){
+            return Level0Room.Level0Connectors.N;
+        }
+        if (direction.equals(new Vector(0, -1))){
+            return Level0Room.Level0Connectors.S;
+        }
+        if (direction.equals(new Vector(-1, 0))){
+            return Level0Room.Level0Connectors.W;
+        }
+        else{
+            throw new IllegalArgumentException("the rooms are not neighbours");
+        }
+    }
+
 
     // random room generation
 
     protected MapState[][] generateRandomRoomPlacement(int roomNumber) {
-        MapState[][] mapState = new MapState[roomNumber][roomNumber];
+        MapState[][] roomsPlacement = new MapState[roomNumber][roomNumber];
         int roomsToPlace = roomNumber;
         List<Room> rooms = new ArrayList<>();
 
         // step 1
-        for (int i = 0; i < roomNumber; i++){
-            for (int j = 0; j < roomNumber; j++){
-                mapState[i][j] = MapState.NULL;
-            }
+        for (MapState[] mapRow : roomsPlacement){
+            Arrays.fill(mapRow, MapState.NULL);
         }
 
         // step 2
         int centerRoomCoordinate = roomNumber / 2;
-        mapState[centerRoomCoordinate][centerRoomCoordinate] = MapState.PLACED;
+        roomsPlacement[centerRoomCoordinate][centerRoomCoordinate] = MapState.PLACED;
         rooms.add(new Room(MapState.PLACED, new DiscreteCoordinates(centerRoomCoordinate, centerRoomCoordinate)));
         roomsToPlace--;
 
@@ -153,7 +246,7 @@ public abstract class Level {            // not getters are to appear in this cl
             // step 3.a)
             for (DiscreteCoordinates neighbour : neighbours){
                 if (neighbour.x >= 0 && neighbour.x < roomNumber && neighbour.y >= 0 && neighbour.y < roomNumber &&
-                        mapState[neighbour.x][neighbour.y].equals(MapState.NULL)){
+                        roomsPlacement[neighbour.x][neighbour.y].equals(MapState.NULL)){
                     freeSlots++;
                     targetForRoom.put(freeSlots, neighbour);
                 }
@@ -167,16 +260,16 @@ public abstract class Level {            // not getters are to appear in this cl
             for (Integer key : keys){
                 DiscreteCoordinates roomCoordinates = targetForRoom.get(key);
 
-                mapState[roomCoordinates.x][roomCoordinates.y] = MapState.PLACED;
+                roomsPlacement[roomCoordinates.x][roomCoordinates.y] = MapState.PLACED;
                 rooms.add(new Room(MapState.PLACED, new DiscreteCoordinates(roomCoordinates.x, roomCoordinates.y)));
                 roomsToPlace--;
             }
 
             // step 3.d)
             rooms.remove(room);
-            mapState[room.coordinates.x][room.coordinates.y] = MapState.EXPLORED;
+            roomsPlacement[room.coordinates.x][room.coordinates.y] = MapState.EXPLORED;
 
-            printMap(mapState);
+            printMap(roomsPlacement);
             System.out.println("_____");
         }
 
@@ -186,7 +279,7 @@ public abstract class Level {            // not getters are to appear in this cl
 
         for (int i = 0; i < roomNumber; i++){
             for (int j = 0; j < roomNumber; j++){
-                if (mapState[i][j] == MapState.NULL && hasNeighbours(new DiscreteCoordinates(i, j), mapState, roomNumber)){
+                if (roomsPlacement[i][j] == MapState.NULL && hasNeighbours(new DiscreteCoordinates(i, j), roomsPlacement, roomNumber)){
                     potentialBossRooms.put(potentialBossRoomNumber, new DiscreteCoordinates(i, j));
                     potentialBossRoomNumber++;
                 }
@@ -195,11 +288,11 @@ public abstract class Level {            // not getters are to appear in this cl
 
         Integer bossRoomIndex = RandomHelper.chooseKInList(1, potentialBossRooms.keySet().stream().toList()).get(0);
         DiscreteCoordinates bossRoomCoordinates = potentialBossRooms.get(bossRoomIndex);
-        mapState[bossRoomCoordinates.x][bossRoomCoordinates.y] = MapState.BOSS_ROOM;
+        roomsPlacement[bossRoomCoordinates.x][bossRoomCoordinates.y] = MapState.BOSS_ROOM;
 
 
         System.out.println(roomsToPlace);
-        return mapState;
+        return roomsPlacement;
     }
 
     private boolean hasNeighbours(DiscreteCoordinates coordinates, MapState[][] mapState, int roomNumber){

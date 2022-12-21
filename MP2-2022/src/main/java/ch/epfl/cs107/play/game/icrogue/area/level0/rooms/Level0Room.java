@@ -101,7 +101,9 @@ public class Level0Room extends ICRogueRoom {
             return this.destination;
         }
 
-
+        public Orientation getOrientation(){
+            return orientation;
+        }
 
         public static List<Orientation> getAllConnectorsOrientation(){//I M SURE THAT THERE IS A DIRECT WAY TO PUT ENUM IN A LIST
 
