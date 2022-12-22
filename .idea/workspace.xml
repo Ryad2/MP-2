@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dd16bcf7-c88b-4c3e-bc22-98209ce54ebf" name="Changes" comment="push to make conception">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/ICRogue.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/ICRogue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/Level0.java" beforeDir="false" afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/Level0.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/Level$MapState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/Level$MapState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/Level$Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/Level$Room.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/Level.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/Level.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/Level0.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/Level0.class" afterDir="false" />
+    <list default="true" id="dd16bcf7-c88b-4c3e-bc22-98209ce54ebf" name="Changes" comment="PROJECT IS DONE&#10;minus extensions">
+      <change afterPath="$PROJECT_DIR$/MP2-2022/src/main/java/Submit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/ICRogue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/ICRogue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/level0Room$Level0Connectors.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/level0Room$Level0Connectors.class" afterDir="false" />
     </list>
     <list id="46e080cd-0ade-491d-a49c-8d64ba73cca7" name="Changes by User" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +46,25 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\fkata\Documents\GitHub\EPFL_MP-2\MP2-2022\src\main\java" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Submit" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Submit" />
+      <module name="EPFL_MP-2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Submit" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration>C:\Users\User\AppData\Roaming\Subversion</configuration>
@@ -316,7 +329,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671651095794</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="PROJECT IS DONE&#10;minus extensions">
+      <created>1671668087698</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1671668087698</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -353,7 +373,8 @@
     <MESSAGE value="middle of making different staffs" />
     <MESSAGE value="5.1 done" />
     <MESSAGE value="push to make conception" />
-    <option name="LAST_COMMIT_MESSAGE" value="push to make conception" />
+    <MESSAGE value="PROJECT IS DONE&#10;minus extensions" />
+    <option name="LAST_COMMIT_MESSAGE" value="PROJECT IS DONE&#10;minus extensions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -362,11 +383,6 @@
           <url>file://$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/handler/AreaInteractionVisitor.java</url>
           <line>15</line>
           <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/ICRogue.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="72" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/Level.java</url>

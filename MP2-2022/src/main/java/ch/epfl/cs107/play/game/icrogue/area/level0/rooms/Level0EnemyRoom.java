@@ -1,9 +1,7 @@
 package ch.epfl.cs107.play.game.icrogue.area.level0.rooms;
 
-import ch.epfl.cs107.play.game.areagame.actor.AreaEntity;
 import ch.epfl.cs107.play.game.icrogue.ICRogue;
 import ch.epfl.cs107.play.game.icrogue.actor.Connector;
-import ch.epfl.cs107.play.game.icrogue.actor.ICRogueActor;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
 
 public class Level0EnemyRoom extends Level0Room {

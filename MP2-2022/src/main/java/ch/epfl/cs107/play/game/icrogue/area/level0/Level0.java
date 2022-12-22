@@ -1,17 +1,8 @@
 package ch.epfl.cs107.play.game.icrogue.area.level0;
 
-import ch.epfl.cs107.play.game.areagame.AreaGame;
-import ch.epfl.cs107.play.game.areagame.actor.Orientation;
-import ch.epfl.cs107.play.game.icrogue.ICRogue;
-import ch.epfl.cs107.play.game.icrogue.RandomHelper;
-import ch.epfl.cs107.play.game.icrogue.area.ConnectorInRoom;
-import ch.epfl.cs107.play.game.icrogue.area.ICRogueRoom;
 import ch.epfl.cs107.play.game.icrogue.area.Level;
 import ch.epfl.cs107.play.game.icrogue.area.level0.rooms.*;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
-import ch.epfl.cs107.play.math.Vector;
-
-import java.util.List;
 
 public class Level0 extends Level {
 

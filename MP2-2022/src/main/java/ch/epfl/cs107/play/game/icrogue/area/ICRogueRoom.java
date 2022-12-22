@@ -1,13 +1,10 @@
 package ch.epfl.cs107.play.game.icrogue.area;
 
 import ch.epfl.cs107.play.game.areagame.Area;
-import ch.epfl.cs107.play.game.areagame.actor.Background;
 import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.game.icrogue.ICRogue;
 import ch.epfl.cs107.play.game.icrogue.ICRogueBehavior;
 import ch.epfl.cs107.play.game.icrogue.actor.Connector;
-import ch.epfl.cs107.play.game.icrogue.actor.items.Cherry;
-import ch.epfl.cs107.play.game.icrogue.actor.items.Staff;
 import ch.epfl.cs107.play.io.FileSystem;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
 import ch.epfl.cs107.play.window.Keyboard;

@@ -1,17 +1,11 @@
 package ch.epfl.cs107.play.game.icrogue.actor.projectiles;
 
 import ch.epfl.cs107.play.game.areagame.Area;
-import ch.epfl.cs107.play.game.areagame.AreaBehavior;
-import ch.epfl.cs107.play.game.areagame.actor.Interactable;
-import ch.epfl.cs107.play.game.areagame.actor.Interactor;
 import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.game.areagame.actor.Sprite;
-import ch.epfl.cs107.play.game.icrogue.ICRogueBehavior;
 import ch.epfl.cs107.play.game.icrogue.actor.ICRogueActor;
-import ch.epfl.cs107.play.game.icrogue.handler.ICRogueInteractionHandler;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
 
-import java.util.Collections;
 import java.util.List;
 
 public class Projectiles extends ICRogueActor implements Consumable {

@@ -1,7 +1,6 @@
 package ch.epfl.cs107.play.game.icrogue.area.level0.rooms;
 
 import ch.epfl.cs107.play.game.areagame.actor.Orientation;
-import ch.epfl.cs107.play.game.icrogue.actor.enemies.Melee;
 import ch.epfl.cs107.play.game.icrogue.actor.enemies.Turret;
 import ch.epfl.cs107.play.game.icrogue.actor.enemies.WalkingTurret;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;

@@ -1,6 +1,5 @@
 package ch.epfl.cs107.play.game.icrogue.area;
 
-import ch.epfl.cs107.play.game.areagame.AreaGame;
 import ch.epfl.cs107.play.game.icrogue.ICRogue;
 import ch.epfl.cs107.play.game.icrogue.RandomHelper;
 import ch.epfl.cs107.play.game.icrogue.area.level0.Level0;

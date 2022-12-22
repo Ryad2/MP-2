@@ -3,7 +3,6 @@ package ch.epfl.cs107.play.game.icrogue.actor;
 import ch.epfl.cs107.play.game.areagame.Area;
 import ch.epfl.cs107.play.game.areagame.actor.*;
 import ch.epfl.cs107.play.game.areagame.handler.AreaInteractionVisitor;
-import ch.epfl.cs107.play.game.icrogue.actor.enemies.Melee;
 import ch.epfl.cs107.play.game.icrogue.actor.enemies.Turret;
 import ch.epfl.cs107.play.game.icrogue.actor.enemies.WalkingTurret;
 import ch.epfl.cs107.play.game.icrogue.actor.items.*;
