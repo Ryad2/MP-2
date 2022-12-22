@@ -3,6 +3,7 @@ package ch.epfl.cs107.play.game.icrogue.area.level0;
 import ch.epfl.cs107.play.game.areagame.AreaGame;
 import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.game.icrogue.ICRogue;
+import ch.epfl.cs107.play.game.icrogue.RandomHelper;
 import ch.epfl.cs107.play.game.icrogue.area.ConnectorInRoom;
 import ch.epfl.cs107.play.game.icrogue.area.ICRogueRoom;
 import ch.epfl.cs107.play.game.icrogue.area.Level;
@@ -14,28 +15,43 @@ import java.util.List;
 
 public class Level0 extends Level {
 
-    private final static DiscreteCoordinates DEFAULT_STARTING_ROOM_POSITION = new DiscreteCoordinates(0, 0);
-    private final static DiscreteCoordinates startingRoomPosition = new DiscreteCoordinates(0, 0);
+    private final static DiscreteCoordinates DEFAULT_STARTING_ROOM_POSITION = new DiscreteCoordinates(1, 1);
     private final static DiscreteCoordinates DEFAULT_START_POSITION = new DiscreteCoordinates(2, 2);
     private final static DiscreteCoordinates DEFAULT_LEVEL_SIZE = new DiscreteCoordinates(4, 2);
 
-    public Level0(ICRogue game){
-        super(DEFAULT_START_POSITION, DEFAULT_LEVEL_SIZE, game, startingRoomPosition);
+    public Level0(boolean randomMap){
+        super(randomMap, DEFAULT_STARTING_ROOM_POSITION, RoomType.getRoomsDistribution(), 4, 2);
+    }
+
+    public Level0(){
+        // the startPosition, width and height will be ignored
+        super(true, null, RoomType.getRoomsDistribution(), 4, 2);
     }
 
     public enum RoomType {
-        TURRET_ROOM (3), // type and number of roon
+        TURRET_ROOM (3), // type and number of room
         STAFF_ROOM (1),
         BOSS_KEY (1),
         SPAWN (1),
         NORMAL (1);
 
-        private int number;
+        private final int number;
 
         RoomType(int number) {
-
+            this.number = number;
         }
-//..
+
+        public static int[] getRoomsDistribution(){
+            int[] roomsDistribution = new int[RoomType.values().length];
+
+            RoomType[] roomTypes = RoomType.values();
+            int roomTypeLength = roomTypes.length;
+            for (int i = 0; i < roomTypeLength; i++){
+                roomsDistribution[i] = roomTypes[i].number;
+            }
+
+            return roomsDistribution;
+        }
     }
 
     // this is given code

@@ -29,7 +29,7 @@ public class ICRogue extends AreaGame {
 
     private void initLevel(String areaKey){
 
-        level0 = new Level(true, new DiscreteCoordinates(2, 2), null, 5, 5);
+        level0 = new Level0();
         level0.addAreas(this);
 
         player = new ICRoguePlayer(currentRoom, Orientation.UP, new DiscreteCoordinates(2, 2));

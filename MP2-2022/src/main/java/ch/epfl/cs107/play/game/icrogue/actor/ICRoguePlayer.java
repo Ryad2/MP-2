@@ -33,7 +33,7 @@ public class ICRoguePlayer extends ICRogueActor implements Interactor {
     private boolean launchFireBall;
     private int fireBallCooldownValue;
     private final int fireBallCooldown = 10;     // 10 is a placeholder value. It needs to be changed later
-    private int hitPoints = 3;
+    private int hitPoints = 20;
     private int orbs = 0;
 
 
