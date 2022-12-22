@@ -5,12 +5,14 @@ import ch.epfl.cs107.play.game.areagame.actor.Orientation;
 import ch.epfl.cs107.play.game.areagame.actor.Sprite;
 import ch.epfl.cs107.play.game.areagame.handler.AreaInteractionVisitor;
 import ch.epfl.cs107.play.game.icrogue.actor.projectiles.Arrow;
+import ch.epfl.cs107.play.game.icrogue.area.level0.rooms.Level0EnemyRoom;
 import ch.epfl.cs107.play.game.icrogue.handler.ICRogueInteractionHandler;
 import ch.epfl.cs107.play.math.DiscreteCoordinates;
 import ch.epfl.cs107.play.math.RegionOfInterest;
 import ch.epfl.cs107.play.math.Vector;
+import ch.epfl.cs107.play.window.Canvas;
 
-public class Turret extends Enemy {
+public class Turret extends Enemy implements ArrowFire{
 
     private boolean isDead;
     private final Orientation[] targetOrientations;       // might want to change the type later
@@ -35,6 +37,16 @@ public class Turret extends Enemy {
     }
 
     @Override
+    public void die(){
+        setDrawMethod(super::deathDraw);
+    }
+
+    @Override
+    protected void setDrawMethod(drawInterface drawMethod){
+        super.setDrawMethod(drawMethod);
+    }
+
+    @Override
     public void update(float deltaTime) {
 
         cooldown += deltaTime;
@@ -46,14 +58,24 @@ public class Turret extends Enemy {
         super.update(deltaTime);
     }
 
+    @Override
+    public void draw(Canvas canvas) {
+        super.draw(canvas);
+    }
 
-    protected void launch(){
+
+    // ====           ====
+    // ==== ArrowFire ====
+    // ====           ====
+
+    @Override
+    public void launch(){
         for (Orientation orientation : targetOrientations){
             Arrow.createArrow(getOwnerArea(), orientation, getCurrentMainCellCoordinates());
         }
     }
 
-    protected void launch(Orientation removedOrientation){
+    public void launch(Orientation removedOrientation){
         for (Orientation orientation : targetOrientations){
             if (!orientation.equals(removedOrientation)){
                 Arrow.createArrow(getOwnerArea(), orientation, getCurrentMainCellCoordinates(), true);
@@ -61,7 +83,7 @@ public class Turret extends Enemy {
         }
     }
 
-    protected void launchCopy(){
+    public void launchCopy(){
         for (Orientation orientation : targetOrientations){
             Arrow.createArrow(getOwnerArea(), orientation, getCurrentMainCellCoordinates(), true);
         }

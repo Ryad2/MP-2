@@ -15,7 +15,7 @@ import ch.epfl.cs107.play.math.Vector;
 import java.util.Collections;
 import java.util.List;
 
-public class WalkingTurret extends Turret implements Interactor { // for now, it extends a non-abstract class. Will fix it later
+public class WalkingTurret extends Turret implements Interactor, ArrowFire {
 
     private static final int MOVE_DURATION = 10;
     private final WalkingTurretInteractionHandler handler;
@@ -42,13 +42,14 @@ public class WalkingTurret extends Turret implements Interactor { // for now, it
     }
 
     @Override
-    protected void launch() {
+    public void launch() {
         super.launchCopy();
     }
 
     @Override
     public void die() {
         updateMethod = this::deathUpdate;
+        setDrawMethod(super::deathDraw);
     }
 
 
@@ -69,12 +70,6 @@ public class WalkingTurret extends Turret implements Interactor { // for now, it
     @Override
     public void update(float deltaTime) {
         updateMethod.update(deltaTime);
-    }
-
-    // this is a delegate. We were not taught to do this
-    @FunctionalInterface
-    private interface updateInterface{
-        void update(float deltaTime);
     }
 
     @Override

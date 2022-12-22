@@ -19,7 +19,7 @@ public class Enemy extends ICRogueActor {
     private boolean isDead;
     protected Animation deathAnimation;
     private drawInterface drawMethod;
-    //private updateInterface updateMethod;
+    private updateInterface updateMethod;
 
     public boolean getLivingStatus(){       // change the getter name
         return isDead;
@@ -34,7 +34,7 @@ public class Enemy extends ICRogueActor {
                 4, 1f, 1f, this, 32, 32), false);
 
         drawMethod = this::normalDraw;
-        //updateMethod = this::normalUpdate;
+        updateMethod = this::normalUpdate;
     }
 
 
@@ -59,16 +59,9 @@ public class Enemy extends ICRogueActor {
                 new RegionOfInterest(0, 0, 16, 32), new Vector(0, 0));
     }
 
-    // update
-
-    /*@Override
-    public void update(float deltaTime) {
-        updateMethod.update(deltaTime);
-    }
-
     protected void normalUpdate(float deltaTime){
         super.update(deltaTime);
-    }*/
+    }
 
     // draw methods
 

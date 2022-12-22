@@ -64,15 +64,6 @@ public class Melee extends MovingEnemy implements Interactor{
         updateMethod = this::moveUpdate;
     }
 
-    /*protected void deathUpdate(float deltaTime){
-        if (!isDisplacementOccurs() && deathAnimation.isCompleted()){
-            super.die();                    // goes through update in a wonky way
-        }
-
-        deathAnimation.update(deltaTime);
-        super.update(deltaTime);
-    }*/
-
     private void initialOrientate(float deltaTime) {
         orientate(calculateOrientation(getPosition(), getOrientation()));
         updateMethod = this::normalUpdate;

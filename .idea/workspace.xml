@@ -1,331 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dd16bcf7-c88b-4c3e-bc22-98209ce54ebf" name="Changes" comment="PROJECT IS DONE&#10;minus extensions">
+    <list default="true" id="dd16bcf7-c88b-4c3e-bc22-98209ce54ebf" name="Changes" comment="initial commit after moving the files">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/enemies/ArrowFire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EPFL_MP-2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/EPFL_MP-2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/CONCEPTION" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/Submit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/Play.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/DragHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/Game.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/PauseMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/Playable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/Updatable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/actor/Acoustics.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/actor/Actor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/actor/Draggable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/actor/Droppable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/actor/Entity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/actor/Graphics.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/actor/GraphicsEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/actor/ImageGraphics.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/actor/ShapeGraphics.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/actor/SoundAcoustics.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/actor/TextGraphics.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/Area.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/AreaBehavior.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/AreaGame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/AreaGraph.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/AreaPauseMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/actor/Animation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/actor/AreaEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/actor/Background.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/actor/CellMouseIndicator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/actor/CollectableAreaEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/actor/DraggableAreaEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/actor/Foreground.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/actor/Grid.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/actor/Interactable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/actor/Interactor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/actor/MovableAreaEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/actor/Orientation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/actor/Path.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/actor/Sprite.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/actor/Text.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/handler/AreaInteractionVisitor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/areagame/io/ResourcePath.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/ICRogue.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/ICRogueBehavior.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/RandomHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/Connector.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/ICRogueActor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/enemies/Enemy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/enemies/Melee.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/enemies/MovingEnemy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/enemies/Turret.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/enemies/WalkingTurret.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/items/Cherry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/items/Item.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/items/Key.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/items/Orb.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/items/Staff.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/projectiles/Arrow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/projectiles/Consumable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/projectiles/FireBall.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/projectiles/Projectiles.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/ConnectorInRoom.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/ICRogueRoom.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/Level.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/Level0.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/Level0BossRoom.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/Level0EnemyRoom.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/Level0ItemRoom.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/Level0KeyRoom.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/Level0Room.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/Level0StaffRoom.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/Level0TurretRoom.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/icrogue/handler/ICRogueInteractionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/tutosSolution/Tuto1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/tutosSolution/Tuto2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/tutosSolution/Tuto2Behavior.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/tutosSolution/actor/GhostPlayer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/tutosSolution/actor/SimpleGhost.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/tutosSolution/area/SimpleArea.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/tutosSolution/area/Tuto2Area.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/tutosSolution/area/tuto1/Ferme.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/tutosSolution/area/tuto1/Village.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/tutosSolution/area/tuto2/Ferme.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/game/tutosSolution/area/tuto2/Village.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/io/DefaultFileSystem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/io/FileSystem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/io/FolderFileSystem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/io/ResourceFileSystem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/io/XMLTexts.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/io/ZipFileSystem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/math/Attachable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/math/Circle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/math/DiscreteCoordinates.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/math/Node.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/math/Polygon.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/math/Polyline.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/math/Positionable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/math/RandomEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/math/RandomGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/math/RegionOfInterest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/math/Shape.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/math/TextAlign.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/math/Transform.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/math/Vector.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/recorder/Record.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/recorder/RecordReplayer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/recorder/Recorder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/recorder/recordEntry/KeyboardPressedRecordEntry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/recorder/recordEntry/KeyboardReleasedRecordEntry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/recorder/recordEntry/MouseButtonPressedRecordEntry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/recorder/recordEntry/MouseButtonReleasedRecordEntry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/recorder/recordEntry/MouseMoveRecordEntry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/recorder/recordEntry/RecordEntry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/signal/Numeric.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/signal/Signal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/signal/logic/And.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/signal/logic/Logic.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/signal/logic/LogicGate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/signal/logic/LogicNumber.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/signal/logic/MultipleAnd.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/signal/logic/Nand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/signal/logic/Not.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/signal/logic/Or.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/signal/logic/Xor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/signal/wave/Sawtooth.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/signal/wave/Sine.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/signal/wave/Square.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/signal/wave/Triangle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/signal/wave/Waveform.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/window/Audio.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/window/Button.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/window/Canvas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/window/Image.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/window/Keyboard.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/window/Mouse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/window/Sound.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/window/Window.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/window/swing/ImageItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/window/swing/Item.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/window/swing/ShapeItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/window/swing/SoundItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/window/swing/SwingImage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/window/swing/SwingSound.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/window/swing/SwingWindow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/java/ch/epfl/cs107/play/window/swing/TextItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/records/zelda/Chateau1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/records/zelda/Ferme1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/records/zelda/Ferme2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/records/zelda/Route1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/records/zelda/Route2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/records/zelda/RouteChateau1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/records/zelda/RouteTemple1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/records/zelda/RouteTemple2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/records/zelda/Temple1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/records/zelda/Village1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/records/zelda/Village2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/fonts/Dragonfly.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/fonts/Kenney Pixel.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/fonts/OpenSans-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/fonts/OpenSans-BoldItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/fonts/OpenSans-ExtraBold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/fonts/OpenSans-ExtraBoldItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/fonts/OpenSans-Italic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/fonts/OpenSans-Light.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/fonts/OpenSans-LightItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/fonts/OpenSans-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/fonts/OpenSans-Semibold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/fonts/OpenSans-SemiboldItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/backgrounds/icrogue/Level0Room.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/backgrounds/zelda/Ferme.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/backgrounds/zelda/Village.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/behaviors/icrogue/Level0Room.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/behaviors/zelda/Ferme.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/behaviors/zelda/Village.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/foregrounds/PetalburgArena1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/foregrounds/PetalburgCenter.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/foregrounds/PetalburgCity.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/foregrounds/PetalburgShop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/foregrounds/PetalburgTimmy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/foregrounds/bag.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/foregrounds/icrogue/Level0Room.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/foregrounds/icrogue/level0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/foregrounds/lightHalo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/foregrounds/zelda/Ferme.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/foregrounds/zelda/Village.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/001.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/031.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/408.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/Bachelorball.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/Bonus.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/Cherry.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/Diamond.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/GroundLightOff.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/GroundLightOn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/GroundPlateOff.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/HPbar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/Icball.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/Inball.2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/Inball.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/Letterball.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/LeverDown.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/LeverUp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/Manball.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/Masterball.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/Mecaball.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/Satball.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/Syscomball.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/XPbar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/assistant.fixed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/bag.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/boy.1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/cellOver.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/dialog.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/flora.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/ghost.1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/ghost.2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/girl.1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/icrogue/cherry.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/icrogue/door_0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/icrogue/door_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/icrogue/door_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/icrogue/door_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/icrogue/feather_npc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/icrogue/invisibleDoor_0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/icrogue/invisibleDoor_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/icrogue/invisibleDoor_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/icrogue/invisibleDoor_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/icrogue/key.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/icrogue/lockedDoor_0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/icrogue/lockedDoor_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/icrogue/lockedDoor_2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/icrogue/lockedDoor_3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/icrogue/static_npc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/icrogue/zombie_npc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/joel.fixed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/max.old.bike.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/max.old.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/max.old.surf.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/max.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/mew.fixed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/pacman.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/player.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/player_bicycle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/player_surf.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/policeman.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/rock.1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/rock.2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/rock.3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/scoreboard.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/shadow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/shopAssistant.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/arrow.icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/arrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/bomb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/bow.icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/bridge.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/castleDoor.close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/castleDoor.open.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/cave.close.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/cave.open.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/character.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/coin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/coinsDisplay.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/darkLord.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/darkLord.spell.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/dialog.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/digits.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/explosion.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/fire.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/flameskull.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/gearDisplay.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/grass.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/grass.sliced.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/heart.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/heartDisplay.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/inventory.background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/inventory.selector.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/inventory.slot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/key.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/king.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/logMonster.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/logMonster.sleeping.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/logMonster.wakingUp.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/magicWaterProjectile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/orb.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/player.bow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/player.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/player.staff_fire.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/player.staff_water.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/player.sword.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/selector.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/staff.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/staff_flame.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/staff_water.icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/sword.icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/vanish.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/images/sprites/zelda/waterfall.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/sounds/dialogNext.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MP2-2022/src/main/res/strings/enigme_fr.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/Play.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/Play.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/Connector$Condition.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/Connector$Condition.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/Connector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/Connector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer$ICRoguePlayerInteractionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer$ICRoguePlayerInteractionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/ICRoguePlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/enemies/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/enemies/Enemy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/enemies/Turret.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/enemies/Turret.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/items/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/items/Item.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/items/Staff.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/items/Staff.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/projectiles/Projectiles.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/actor/projectiles/Projectiles.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/ICRogueRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/ICRogueRoom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/Level$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/Level$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/Level$MapState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/Level$MapState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/Level$Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/Level$Room.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/Level.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/Level.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/Level0$RoomType.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/Level0$RoomType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/Level0.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/Level0.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/Level0BossRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/Level0BossRoom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/Level0EnemyRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/Level0EnemyRoom.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/Level0TurretRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/Level0TurretRoom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/level0Room$Level0Connectors.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/level0Room$Level0Connectors.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/level0Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/EPFL_MP-2/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/level0Room.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/enemies/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/enemies/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/enemies/Melee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/enemies/Melee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/enemies/Turret.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/enemies/Turret.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/enemies/WalkingTurret.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/epfl/cs107/play/game/icrogue/actor/enemies/WalkingTurret.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/Level0TurretRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ch/epfl/cs107/play/game/icrogue/area/level0/rooms/Level0TurretRoom.java" afterDir="false" />
     </list>
     <list id="46e080cd-0ade-491d-a49c-8d64ba73cca7" name="Changes by User" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -336,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -680,7 +366,21 @@
       <option name="project" value="LOCAL" />
       <updated>1671669042499</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="initial commit after moving the files">
+      <created>1671700190401</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1671700190401</updated>
+    </task>
+    <task id="LOCAL-00040" summary="initial commit after moving the files">
+      <created>1671700255668</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1671700255668</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -718,7 +418,8 @@
     <MESSAGE value="5.1 done" />
     <MESSAGE value="push to make conception" />
     <MESSAGE value="PROJECT IS DONE&#10;minus extensions" />
-    <option name="LAST_COMMIT_MESSAGE" value="PROJECT IS DONE&#10;minus extensions" />
+    <MESSAGE value="initial commit after moving the files" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit after moving the files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
